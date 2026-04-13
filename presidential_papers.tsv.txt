@@ -1,0 +1,549 @@
+Record ID	President	Administration/Term	Date	Year	Document Title	Document Type	Audience	Historical Context/Event	Group Mentioned (verbatim)	Group Category	Valence	Rationale (why positive/negative/etc.)	Excerpt / Quote	Topic Tags	Source URL	Source (collection/site)	Notes
+REC-0001	George Washington	1789–1797	1796-09-19	1796	Farewell Address	Address	The People of the United States	End of Washington’s presidency; urging national unity over sectional/local identities.	"The name of American, which belongs to you, in your national capacity"	National identity / Americans (citizens)	Positive	Presents shared national identity (“American”) as a source of pride and unity above local divisions.	"The name of American, which belongs to you, in your national capacity, must always exalt the just pride of patriotism more than any appellation derived from local discriminations."	unity; national identity; patriotism	https://www.senate.gov/artandhistory/history/resources/pdf/Washingtons_Farewell_Address.pdf	U.S. Senate (Historical Resources)	Use for ‘positive’ group framing: Americans as one national community.
+REC-0002	George Washington	1789–1797	1794-11-19	1794	Sixth Annual Address to Congress	Annual message to Congress	U.S. Congress	Whiskey Rebellion; opposition to federal excise law and enforcement in western Pennsylvania.	certain self-created societies	Political associations / domestic dissent	Negative	"Strongly condemns the group as demagogic and disorderly, blaming them for deliberate obstruction of federal court orders."	"From a belief that by a more formal concert their operation might be defeated, certain self-created societies assumed the tone of condemnation."	domestic unrest; whiskey rebellion; excise tax; political societies	https://www.presidency.ucsb.edu/documents/sixth-annual-address-congress	The American Presidency Project (UCSB)	Use for ‘negative’ group framing: organized political societies cast as obstructive/condemnatory.
+REC-0003	John Adams	1797–1801	1797-05-16	1797	Special Session Message to Congress (Relations with France / XYZ Affair)	Message to Congress	U.S. Congress	Diplomatic crisis with France; requesting preparations while appealing to national unity.	my fellow citizens	Americans (citizens) / civic virtue	Positive	Explicitly praises Americans’ ‘virtue and patriotism’ as the foundation for national support.	"To enable me to maintain this declaration I rely, under God, with entire confidence on the firm and enlightened support of the national legislature and upon the virtue and patriotism of my fellow citizens."	patriotism; civic virtue; unity; foreign affairs	https://millercenter.org/the-presidency/presidential-speeches/may-16-1797-special-session-message-congress-xyz-affair	Miller Center (UVA)	Good ‘positive group’ example tied to civic virtue/patriotism.
+REC-0004	John Adams	1797–1801	1799-03-12	1799	"Proclamation 9—Law and Order in Northampton, Montgomery, and Bucks Counties (PA)"	Proclamation	General public / federal & state officers	Tax resistance and unrest in eastern Pennsylvania (Fries’s Rebellion context).	certain persons in the county of Northampton	Domestic insurgents / tax resisters	Negative	Labels the group’s actions as illegal/treasonable and frames them as armed resistance to lawful authority.	"certain persons in the county of Northampton aforesaid have been hardy enough to perpetrate certain acts which I am advised amount to treason, being overt acts of levying war against the United States"	law and order; rebellion; taxation; domestic unrest	https://www.presidency.ucsb.edu/documents/proclamation-9-law-and-order-the-counties-northampton-montgomery-and-bucks-the-state	The American Presidency Project (UCSB)	Clear negative framing of a defined group inside the U.S. as ‘treason’ / armed resistance.
+REC-0005	Thomas Jefferson	1801–1809	1801-03-04	1801	First Inaugural Address	Inaugural address	The American people	Party turnover after the 1800 election; call for reconciliation between political factions.	Republicans; Federalists	Political factions / Americans (party identity)	Positive	Frames rival factions as ‘brethren’ and promotes national unity across partisan labels.	"We have called by different names brethren of the same principle. We are all Republicans, we are all Federalists."	unity; partisanship; reconciliation; republicanism	https://millercenter.org/issues-policy/governance/first-words-thomas-jefferson-march-4-1801	Miller Center (UVA)	Positive group framing: opposing parties treated as part of the same national community.
+REC-0006	Thomas Jefferson	1801–1809	1807-01-22	1807	Special Message to Congress on the Burr Conspiracy	Message to Congress	U.S. Congress	Aaron Burr conspiracy; alleged attempt to detach western territory and conduct an unauthorized military expedition.	an illegal combination of private individuals	Domestic conspirators / unlawful expedition organizers	Negative	Describes the group as an ‘illegal combination’ threatening the Union’s peace and safety; emphasizes suppression and prosecution.	information received touching an illegal combination of private individuals against the peace and safety of the Union	domestic unrest; conspiracy; law enforcement; national security	https://millercenter.org/the-presidency/presidential-speeches/january-22-1807-special-message-congress-burr-conspiracy	Miller Center (UVA)	Negative group framing: Americans involved in unlawful combinations cast as threats to the Union.
+REC-0007	James Madison	1809–1817	1812-11-04	1812	Fourth Annual Message	Annual message to Congress	U.S. Congress	War of 1812; reporting on the war’s early campaigns and national defense.	of the militia of the State of New York	Military / militia / citizen-soldiers	Positive	"Praises U.S. troops’ zeal and bravery, highlighting their ‘ardor’ and ‘distinguished gallantry.’"	"the ardor of the troops, who executed it with distinguished gallantry"	War of 1812; militia; gallantry; military service	https://www.presidency.ucsb.edu/documents/fourth-annual-message-0	The American Presidency Project (UCSB)	Positive group framing: militia/troops portrayed as courageous and zealous.
+REC-0008	James Madison	1809–1817	1812-11-04	1812	Fourth Annual Message	Annual message to Congress	U.S. Congress	War of 1812; federal request for militia detachments for coastal defense.	the governors of Maine and Connecticut	State officials / intergovernmental conflict	Negative	"Criticizes governors for refusing to supply militia, calling their constitutional interpretation ‘novel and unfortunate.’"	the refusal of the governors of Maine and Connecticut	War of 1812; militia; federalism; constitutional dispute	https://www.presidency.ucsb.edu/documents/fourth-annual-message-0	The American Presidency Project (UCSB)	Negative group framing: state executives portrayed as obstructing national defense measures.
+REC-0009	James Monroe	1817–1825	1823-12-02	1823	Seventh Annual Message (Monroe Doctrine)	Annual message to Congress	U.S. Congress	Monroe Doctrine era; U.S. stance toward European intervention and Western Hemisphere affairs.	The citizens of the United States	Americans (citizens) / national character	Positive	"Attributes friendly humanitarian sentiments to U.S. citizens, portraying them as supportive of liberty and happiness abroad."	The citizens of the United States cherish sentiments the most friendly in favor of the liberty and happiness of their fellow men on that side of the Atlantic.	Monroe Doctrine; foreign policy; national character; liberty	https://www.presidency.ucsb.edu/documents/seventh-annual-message-1	The American Presidency Project (UCSB)	Positive group framing: U.S. citizens described as friendly to liberty/happiness of others.
+REC-0010	James Monroe	1817–1825	1824-05-21	1824	Special Message to the Senate on Suppression of the Slave Trade (Piracy Convention)	Special message	U.S. Senate	Debate over treaty/convention with Great Britain aimed at suppressing the African slave trade by treating it as piracy.	all such of our citizens as might be found engaged in that trade	Americans engaged in illegal activity (slave trade)	Negative	Frames the targeted group as criminal—‘p iratical’—and notes they are subject to severe punishment under U.S. law.	"was made piratical, and all such of our citizens as might be found engaged in that trade were subjected"	slave trade; piracy; law and punishment; treaty	https://www.presidency.ucsb.edu/documents/special-message-218	The American Presidency Project (UCSB)	Negative group framing: ‘our citizens’ engaged in slave trade described as pirates subject to capital punishment.
+REC-0011	John Quincy Adams	1825–1829	1827-12-04	1827	Third Annual Message	Annual message to Congress	U.S. Congress	"Reports on national conditions, emphasizing internal peace, prosperity, and the enjoyment of rights."	our fellow citizens	Americans (citizens) / civil rights & social order	Positive	Frames Americans as living in internal quiet and ‘full enjoyment’ of rights and faculties.	Internal quiet has left our fellow citizens in the full enjoyment of all their rights and in the free exercise of all their faculties	prosperity; civil rights; internal peace; national conditions	https://millercenter.org/the-presidency/presidential-speeches/december-4-1827-third-annual-message	Miller Center (UVA)	Positive group framing: ‘our fellow citizens’ portrayed as enjoying rights and freedom under internal peace.
+REC-0012	John Quincy Adams	1825–1829	1827-12-04	1827	Third Annual Message	Annual message to Congress	U.S. Congress	Reports on violence and tensions in the Northwest involving U.S. citizens and Native nations.	a party of the Winnebago tribe	Native American tribe (Winnebago/Ho-Chunk) / conflict	Negative	Describes the group as committing ‘unprovoked murder’ and ‘acts of unequivocal hostility.’	the unprovoked murder of several citizens and other acts of unequivocal hostility committed by a party of the Winnebago tribe	frontier conflict; violence; military response; Native relations	https://millercenter.org/the-presidency/presidential-speeches/december-4-1827-third-annual-message	Miller Center (UVA)	Negative group framing: executive report characterizes a specific tribal party as hostile; reflects U.S. government framing in an official message.
+REC-0013	Andrew Jackson	1829–1837	1832-07-10	1832	Veto Message Regarding the Bank of the United States (Bank Veto)	Veto message	U.S. Congress (returned to the Senate)	Bank War; Jackson vetoes recharter of the Second Bank of the United States.	"the humble members of society — the farmers, mechanics, and laborers"	"Class / working people (farmers, mechanics, laborers)"	Positive	Frames working people as the group most harmed by exclusive privileges and as having a just claim against unfair government favoritism.	"the humble members of society — the farmers, mechanics, and laborers —"	Bank War; class; privilege; populism; equality	https://millercenter.org/the-presidency/presidential-speeches/july-10-1832-bank-veto	Miller Center (UVA)	Same document also contains the negative ‘rich and powerful’ line; see next row.
+REC-0014	Andrew Jackson	1829–1837	1832-08-24	1832	Insurrection act	Declaration of Inssurection	People of Virginia	Nat Turner Revolution; Jackson Issued an illegation action of Federal Troops to surpress and put down the Black resistance	Turner's revolutionaries	Black People	Negative	Explicitly criticizes elites for manipulating government for selfish ends.	It is to be regretted that the rich and powerful too often bend the acts of government to their selfish purposes.	Bank War; class; corruption; privilege	https://avalon.law.yale.edu/19th_century/ajveto01.asp	Avalon Project (Yale Law School)	Negative group framing: ‘rich and powerful’ described as bending government to selfish purposes.
+REC-0015	Martin Van Buren	1837–1841	1837-03-04	1837	Inaugural Address	Inaugural address	The American people	Beginning of Van Buren presidency; reflecting on durability of U.S. institutions amid partisan conflict.	the virtue and fortitude of the people	Americans (citizens) / civic character	Positive	Praises the people’s ‘virtue and fortitude’ and emphasizes continued ‘unimpaired fraternal feeling’ despite partisan exasperation.	Party exasperation has been often carried to its highest point; the virtue and fortitude of the people have sometimes been greatly tried; yet our system	civic virtue; unity; partisanship; institutions	https://www.presidency.ucsb.edu/documents/inaugural-address-28	The American Presidency Project (UCSB)	Positive group framing: Americans praised for virtue/fortitude and fraternal feeling.
+REC-0016	Martin Van Buren	1837–1841	###############################################################################################################################################################################################################################################################	1838	Proclamation 45A—Neutrality With Respect to Canadian Affairs	Proclamation	General public; U.S. citizens near the Canadian border	Patriot War / Canadian rebellions; neutrality enforcement	persons engaged in such unlawful enterprises	Neutrality violators / unlawful border expeditions	Negative	Warns and condemns Americans attempting or aiding unlawful armed expeditions against British Canada; frames them as violating U.S. law and obligations.	and I do hereby warn all persons engaged in such unlawful enterprises to desist therefrom and to disperse and retire peaceably to their respective abodes.	neutrality; unlawful expedition; border conflict; law enforcement	https://www.presidency.ucsb.edu/documents/proclamation-45a-neutrality-with-respect-canadian-affairs	The American Presidency Project (UCSB)	"Used in place of inaugural for a more developed, enforcement-focused statement."
+REC-0017	William Henry Harrison	1841	1841-03-04	1841	Inaugural Address	Inaugural address	The American people	Start of Harrison presidency; outlines Whig constitutional views and warns against partisan excess.	a just and generous people	Americans (citizens) / civic character	Positive	"Describes Americans as ‘just and generous,’ expressing confidence in their support and character."	I shall enter upon their performance with entire confidence in the support of a just and generous people.	civic virtue; confidence; presidency; public support	https://avalon.law.yale.edu/19th_century/harrison.asp	Avalon Project (Yale Law School)	Positive group framing: ‘people’ praised explicitly as just/generous.
+REC-0018	William Henry Harrison	1841	1841-03-04	1841	Inaugural Address	Inaugural address	The American people	Warning against factionalism and party spirit as threats to republican liberty.	the spirit of party	Partisans / political factions	Negative	"Characterizes party spirit as intolerant and dangerous, contrasting it with the ‘true spirit of liberty.’"	"These parties of opposition are harsh, vindictive, and intolerant"	faction; party spirit; republicanism; civic virtue	https://avalon.law.yale.edu/19th_century/harrison.asp	Avalon Project (Yale Law School)	Negative group framing: party spirit/partisans portrayed as intolerant and harmful.
+REC-0019	John Tyler	1841–1845	1841-04-09	1841	Address Upon Assuming the Office of President of the United States	Address / remarks	The People of the United States	Tyler assumes presidency after William Henry Harrison’s death; first-ever vice presidential succession to the presidency.	the intelligence and patriotism of the people	Americans (citizens) / civic character	Positive	Expresses reliance on the people’s ‘intelligence and patriotism’ for legitimacy and support amid sudden succession.	I shall place in the intelligence and patriotism of the people my only sure reliance.	succession; civic character; patriotism; legitimacy	https://www.presidency.ucsb.edu/documents/address-upon-assuming-the-office-president-the-united-states	The American Presidency Project (UCSB)	Positive group framing: people described as intelligent and patriotic.
+REC-0020	John Tyler	1841–1845	###############################################################################################################################################################################################################################################################	1841	Proclamation 46A—Warning Against Lawless Incursions Into Canada	Proclamation	General public; U.S. citizens near the Canadian border	Border raids / neutrality enforcement after 1837–38 unrest	persons engaged in such unlawful enterprises	Lawless raiders / unlawful border incursions	Negative	"Denounces and orders would-be raiders to stand down, describing them as lawless and unlawful."	"and I do hereby enjoin all persons engaged in such unlawful enterprises to desist therefrom, and to disperse and retire peaceably to their respective abodes."	neutrality; border raids; unlawful enterprise; law enforcement	https://www.presidency.ucsb.edu/documents/proclamation-46a-warning-against-lawless-incursions-into-canada	The American Presidency Project (UCSB)	Replaces a brief accession address with a stronger condemnation document.
+REC-0021	James K. Polk	1845–1849	1845-03-04	1845	Inaugural Address	Inaugural address	The American people	"Start of Polk presidency; emphasizing union, equality of citizens, and national growth."	"All citizens, whether native or adopted"	Citizenship / immigrants (naturalized citizens)	Positive	Affirms equal status and protection for both native-born and naturalized Americans.	"All citizens, whether native or adopted, are placed upon terms of precise equality. All are entitled to equal rights and equal protection."	citizenship; equality; rights; immigration	https://www.presidency.ucsb.edu/documents/inaugural-address-30	The American Presidency Project (UCSB)	Positive group framing: explicitly equalizes native-born and naturalized citizens.
+REC-0022	James K. Polk	1845–1849	###############################################################################################################################################################################################################################################################	1848	Fourth Annual Message	Annual Message to Congress	Congress; national public	End of Mexican–American War; domestic politics; debates over executive power	fanatic and sinister influences	Political factions / extremists	Negative	"Frames domestic opponents as factional and driven by “fanatic and sinister influences,” positioning them as a threat to constitutional checks and stability."	"Error, selfishness, and faction have often sought to rend asunder this web of checks and subject the Government to the control of fanatic and sinister influences"	partisanship; faction; constitutional checks; domestic politics	https://www.presidency.ucsb.edu/documents/fourth-annual-message-6	The American Presidency Project (UCSB)	Substitutes a term-end message for the inaugural to reflect developed governing rhetoric.
+REC-0023	Zachary Taylor	1849–1850	1849-03-05	1849	Inaugural Address	Inaugural address	The American people	Start of Taylor presidency; outlines constitutional principles and foreign-policy neutrality.	As American freemen	Americans (citizens) / civic identity	Positive	Frames Americans as ‘freemen’ who sympathize with efforts to extend civil and political liberty.	As American freemen we can not but sympathize in all efforts to extend the blessings of civil and political liberty	civic identity; liberty; foreign policy; neutrality	https://www.presidency.ucsb.edu/documents/inaugural-address-31	The American Presidency Project (UCSB)	Positive group framing: ‘American freemen’ linked to sympathy for liberty.
+REC-0024	Zachary Taylor	1849–1850	1849-12-04	1849	First Annual Message	Annual message to Congress	U.S. Congress	Post–Mexican-American War era; neutrality issues and enforcement of U.S. laws against private military expeditions.	a considerable number of adventurers	Private military expedition organizers / lawbreakers	Negative	"Describes the group as ‘adventurers’ organizing an illegal military expedition from within the U.S., and frames suppression as necessary for American honor and lawful authority."	Having been apprised that a considerable number of adventurers were engaged in fitting out a military expedition within the United States	law and order; neutrality; filibustering; Cuba; American honor	https://millercenter.org/the-presidency/presidential-speeches/december-4-1849-first-annual-message	Miller Center (UVA)	Negative group framing: ‘adventurers’ involved in unlawful expedition portrayed as a threat to honor/law.
+REC-0025	Millard Fillmore	1850–1853	1850-12-02	1850	First Annual Message	Annual message to Congress	U.S. Congress	Post–Compromise of 1850 era; outlining principles of national sovereignty and relations among nations.	The people of the United States	Americans (citizens) / political principles	Positive	Portrays Americans as fair-minded: claiming self-government for themselves while readily conceding the same right to others.	"The people of the United States claim this right for themselves, and they readily concede it to others."	self-government; national principles; international reciprocity	https://www.presidency.ucsb.edu/documents/first-annual-message-7	The American Presidency Project (UCSB)	Positive group framing: Americans described as asserting and respecting self-government.
+REC-0026	Millard Fillmore	1850–1853	1851-12-02	1851	Second Annual Message	Annual message to Congress	U.S. Congress	Enforcement of the Fugitive Slave Act; federal officers resisted during attempts to execute the law.	lawless and violent mobs	Domestic resistance / mobs (law enforcement obstruction)	Negative	"Condemns organized resistance as ‘lawless and violent,’ blaming it for obstructing federal officers and causing death/injury."	their efforts frustrated and defeated by lawless and violent mobs	law and order; federal enforcement; mobs; fugitive slave law	https://www.presidency.ucsb.edu/documents/second-annual-message-7	The American Presidency Project (UCSB)	Negative group framing: ‘lawless and violent mobs’ resisting enforcement are explicitly criticized.
+REC-0027	Franklin Pierce	1853–1857	1853-03-04	1853	Inaugural Address	Inaugural address	The American people	Beginning of Pierce presidency; reflecting on U.S. constitutional strength and the founding generation.	our fathers	Founding generation / early Americans	Positive	Praises the founding generation as having fulfilled a ‘great mission’ wisely and bravely.	the great mission so wisely and bravely fulfilled by our fathers.	founding; national character; Constitution; civic virtue	https://www.presidency.ucsb.edu/documents/inaugural-address-32	The American Presidency Project (UCSB)	Positive group framing: explicit praise of the founding generation.
+REC-0028	Franklin Pierce	1853–1857	1856-01-24	1856	Special Message Regarding Disturbances in Kansas	Special message	U.S. Congress	Bleeding Kansas; disputes over legitimacy of territorial government and competing political organizations.	a mere party in the Territory	Political faction / extra-legal organizers	Negative	"Criticizes a faction acting ‘without law’ as lacking authority, framing their actions as revolutionary and potentially insurrectionary."	claimed by a mere party in the Territory.	Kansas; law and order; faction; insurrection; popular sovereignty	https://www.presidency.ucsb.edu/documents/special-message-3068	The American Presidency Project (UCSB)	Negative group framing: faction described as acting without lawful authority.
+REC-0029	James Buchanan	1857–1861	1857-03-04	1857	Inaugural Address	Inaugural address	The American people	Start of Buchanan presidency amid rising sectional tensions; appeal to national unity and constitutional order.	my friends and fellow-citizens	Americans (citizens) / civic unity	Positive	Frames Americans as ‘friends and fellow-citizens’ and emphasizes shared commitment to the Constitution and Union.	"I shall on all occasions use my best exertions to preserve, protect, and defend the Constitution"	unity; Constitution; union; civic duty	https://www.presidency.ucsb.edu/documents/inaugural-address-33	The American Presidency Project (UCSB)	Positive group framing: unifying address to citizens as friends/fellow-citizens and commitment to constitutional preservation.
+REC-0030	James Buchanan	1857–1861	###############################################################################################################################################################################################################################################################	1858	Proclamation 76—Rebellion in the Territory of Utah	Proclamation	Residents of Utah Territory; U.S. public	Utah War; federal authority vs. territorial resistance	the people of Utah Territory	Territorial rebels / resisters of federal authority	Negative	Characterizes organized territorial resistance as rebellion and explicitly ties it to treason.	This is rebellion against the Government of the United States	rebellion; territorial governance; federal authority; treason	https://www.presidency.ucsb.edu/documents/proclamation-76-rebellion-the-territory-utah	The American Presidency Project (UCSB)	Replaces inaugural with a direct condemnation tied to a concrete conflict.
+REC-0031	Abraham Lincoln	1861–1865	1861-03-04	1861	First Inaugural Address	Inaugural address	The American people	Secession crisis; Lincoln appeals for Union and avoids civil war at the outset of his presidency.	"My countrymen, one and all"	Americans (citizens) / national unity	Positive	"Frames Americans across sections as bound by ‘bonds of affection’ and urges unity: ‘We are not enemies, but friends.’"	"We are not enemies, but friends. We must not be enemies."	union; reconciliation; secession crisis; civic unity	https://avalon.law.yale.edu/19th_century/lincoln1.asp	Avalon Project (Yale Law School)	Positive group framing: fellow Americans characterized as ‘friends’ despite sectional strain.
+REC-0032	Abraham Lincoln	1861–1865	1861-04-15	1861	Proclamation 80—Calling Forth the Militia and Convening an Extra Session of Congress	Proclamation	State authorities and the public	"After the attack on Fort Sumter; Lincoln calls for 75,000 militia to suppress rebellion and enforce federal law."	the persons composing the combinations aforesaid	Insurrectionists / secessionist rebels	Negative	Describes the group as obstructing the execution of U.S. laws and orders them to disperse; frames them as unlawful ‘combinations.’	I hereby command the persons composing the combinations aforesaid to disperse	Civil War; insurrection; militia; law enforcement; Union	https://www.presidency.ucsb.edu/documents/proclamation-80-calling-forth-the-militia-and-convening-extra-session-congress	The American Presidency Project (UCSB)	Negative group framing: rebels/insurrectionists described as ‘combinations’ obstructing federal law; ordered to disperse.
+REC-0033	Andrew Johnson	1865–1869	1865-12-04	1865	First Annual Message	Annual message to Congress	U.S. Congress	Immediate post–Civil War Reconstruction; restoring Union and civil government in former Confederate states.	the loyal people of the United States	Union loyalists / Americans (citizens)	Positive	Praises ‘loyal’ Americans for sustaining the government and expects their continued support for reconstruction and public order.	I cannot doubt that the loyal people of the United States will willingly sustain the Government in the efforts it is making	Reconstruction; loyalty; Union; governance; public order	https://www.presidency.ucsb.edu/documents/first-annual-message-10	The American Presidency Project (UCSB)	Positive group framing: ‘loyal people’ treated as backbone of restoration and governance.
+REC-0034	Andrew Johnson	1865–1869	1866-03-27	1866	Veto Message (Civil Rights Bill)	Veto message	U.S. Senate	Reconstruction conflict between Johnson and Congress over civil rights and federal power; Johnson vetoes Civil Rights Act of 1866.	the freedmen	Freed Black Americans (freedmen) / civil rights	Negative	Frames the bill as giving special protections/advantages to ‘freedmen’ over others; treats the group as the focus of objectionable ‘discrimination.’	in favor of the colored race and against the white race.	Civil Rights Act 1866; race; Reconstruction; veto; equality/discrimination framing	https://millercenter.org/the-presidency/presidential-speeches/march-27-1866-veto-civil-rights-bill	Miller Center (UVA)	"Negative group framing: Johnson’s veto frames protections for freedpeople as unfair ‘discrimination.’ (Historically significant, but document is politically charged.)"
+REC-0035	Ulysses S. Grant	1869–1877	1869-03-04	1869	First Inaugural Address	Inaugural address	The American people	Post–Civil War Reconstruction; urging calm settlement of postwar issues and equal enforcement of law.	law-abiding Americans (native-born and naturalized citizens)	Citizenship / Americans (native-born and naturalized citizens)	Positive	Grant frames law-abiding Americans—native-born and naturalized citizens—as entitled to equal rights and protection under U.S. law.	"I would protect the law-abiding citizen, whether of native or foreign birth, wherever his rights are jeopardized"	citizenship; civil rights; equal protection; rule of law	https://millercenter.org/the-presidency/presidential-speeches/march-4-1869-first-inaugural-address	Miller Center (UVA)	Positive group framing: ‘law-abiding’ citizens explicitly protected regardless of birth status.
+REC-0036	Ulysses S. Grant	1869–1877	1871-10-17	1871	Proclamation Suspending Habeas Corpus (South Carolina)	Proclamation	Public and federal/state officials	Enforcement Acts / Ku Klux Klan violence; federal response to organized intimidation and obstruction of law in South Carolina.	unlawful combinations and conspiracies	Insurrectionists / Klan conspirators / organized lawbreakers	Negative	Labels the group ‘unlawful’ and ‘rebellion’ and orders them to disperse; frames them as obstructing justice and depriving classes of rights.	all persons composing such unlawful combinations and conspiracies to disperse and retire peaceably to their homes	Reconstruction; Ku Klux Klan; law and order; civil rights enforcement; habeas corpus	https://millercenter.org/the-presidency/presidential-speeches/october-17-1871-proclamation-suspending-habeas-corpus	Miller Center (UVA)	Negative group framing: organized conspirators treated as unlawful/insurrectionary and subject to extraordinary federal measures.
+REC-0037	Rutherford B. Hayes	1877–1881	1877-03-05	1877	Inaugural Address	Inaugural address	The American people	Post–Civil War Reconstruction and the contested 1876 election; Hayes frames civil rights and local self-government in the South.	the people it has emancipated	Freedpeople / emancipated race (Black Americans)	Positive	"Affirms a federal moral obligation to establish and protect the rights of formerly enslaved people, presenting their rights as legitimate and enforceable."	"That a moral obligation rests upon the National Government to employ its constitutional power and influence to establish the rights of the people it has emancipated, and to protect them in the enjoyment of those rights"	Reconstruction; civil rights; emancipation; race relations; constitutional duty	https://millercenter.org/the-presidency/presidential-speeches/march-5-1877-inaugural-address	Miller Center (UVA)	Positive group framing: explicitly supports protecting the rights of the emancipated population.
+REC-0038	Rutherford B. Hayes	1877–1881	1877-07-18	1877	Message/Proclamation Regarding Railroad Strike	Proclamation	Public and state authorities (West Virginia)	Great Railroad Strike of 1877; federal response to domestic violence and obstruction of laws on rail lines.	all persons engaged in or connected with said domestic violence and obstruction of the laws	Rioters / insurgents / lawbreakers	Negative	"Labels the group as participants in ‘domestic violence’ and ‘obstruction of the laws,’ warning them to disperse—clear condemnation of unlawful action."	I do hereby warn all persons engaged in or connected with said domestic violence and obstruction of the laws to disperse and retire peaceably to their respective abodes	Great Railroad Strike of 1877; domestic violence; law and order; federal intervention	https://millercenter.org/the-presidency/presidential-speeches/july-18-1877-message-regarding-railroad-strike	Miller Center (UVA)	Negative group framing: condemns those involved in domestic violence/obstruction as unlawful actors.
+REC-0039	James A. Garfield	1881	1881-03-04	1881	Inaugural Address	Inaugural address	The American people	"Post-Reconstruction era; civil service reform debate; emphasis on education, national unity, and equal rights."	the freedmen	Freed Black Americans / civil rights	Positive	Affirms the ‘complete protection’ of civil and political rights for Black Americans as a core national duty.	the complete protection of the civil and political rights of the freedmen is a duty which the Government owes	civil rights; Reconstruction legacy; equality; freedmen	https://www.presidency.ucsb.edu/documents/inaugural-address-34	The American Presidency Project (UCSB)	Positive group framing: explicit commitment to protecting freedmen’s civil/political rights.
+REC-0040	James A. Garfield	1881	1881-03-04	1881	Inaugural Address	Inaugural address	The American people	Continued anxiety about election integrity and corruption; calls for reform and public virtue.	the criminal classes	Criminals / lawbreakers	Negative	Contrasts civic virtue with threats from ‘criminal classes’ influencing elections—explicitly condemning that group.	should be effectually prevented from	elections; corruption; law and order; civic virtue	https://www.presidency.ucsb.edu/documents/inaugural-address-34	The American Presidency Project (UCSB)	Negative group framing: ‘criminal classes’ portrayed as corrupting elections/ballot.
+REC-0041	Chester A. Arthur	1881–1885	1881-12-06	1881	First Annual Message	Annual message to Congress	U.S. Congress	After Garfield’s assassination; Arthur outlines national conditions and advocates civil service reform and modernization.	the intelligent and enterprising people of the United States	Americans (citizens) / national character	Positive	"Describes Americans as ‘intelligent and enterprising,’ framing prosperity as rooted in their character and industry."	the intelligent and enterprising people of the United States	national character; prosperity; industry; modernization	https://www.presidency.ucsb.edu/documents/first-annual-message-12	The American Presidency Project (UCSB)	Positive group framing: Americans praised for intelligence/enterprise.
+REC-0042	Chester A. Arthur	1881–1885	1881-12-06	1881	First Annual Message	Annual message to Congress	U.S. Congress	Concern about attacks on U.S. officials and rising political violence; need for legal protection and order.	lawless persons	Lawbreakers / violent offenders	Negative	Condemns violent actors as ‘lawless persons’ and frames their actions as threats to order and governance.	acts of violence perpetrated by lawless persons	law and order; violence; political assassination; governance	https://www.presidency.ucsb.edu/documents/first-annual-message-12	The American Presidency Project (UCSB)	Negative group framing: ‘lawless persons’ identified as perpetrators of violence.
+REC-0043	Grover Cleveland	1885–1889	1885-03-04	1885	First Inaugural Address	Inaugural address	The American people	Start of Cleveland’s first term; a Democratic president after a long Republican run since the Civil War; calls for civic unity and responsible government.	a great and free people	Americans (citizens) / civic identity	Positive	"Describes the electorate as ‘great and free,’ framing the transfer of power as legitimate self-government."	the manifestation of the will of a great and free people.	inaugural; democracy; civic identity; self-government	https://millercenter.org/the-presidency/presidential-speeches/march-4-1885-first-inaugural-address	Miller Center (UVA)	Positive group framing: Americans characterized as ‘great and free’ within a self-government narrative.
+REC-0044	Grover Cleveland	1885–1889	###############################################################################################################################################################################################################################################################	1886	Proclamation 275—Intent to use Force Against Unlawful Assemblages in the Territory of Washington	Proclamation	Residents of Washington Territory; U.S. public	Civil disorder/rioting in Washington Territory; federal readiness to enforce order	evil-disposed persons	Rioters / unlawful assemblages	Negative	"Describes participants as “evil-disposed” and orders them to disperse, framing the group as an unlawful insurgent threat to public order."	I do hereby command and warn all persons engaged in said unlawful assemblage to disperse and retire peaceably to their respective homes	civil disorder; unlawful assemblage; federal force; public order	https://www.presidency.ucsb.edu/documents/proclamation-275-intent-use-force-against-unlawful-assemblages-the-territory	The American Presidency Project (UCSB)	Substitutes a governance-era proclamation for the inaugural.
+REC-0045	Benjamin Harrison	1889–1893	1889-03-04	1889	Inaugural Address	Inaugural address	The American people	"Start of Harrison presidency; stresses national progress, civic virtue, and social order at the close of the 19th century."	the great body of our people	Americans (citizens) / national character	Positive	"Praises Americans as ‘stable, patriotic, and law-abiding,’ using the phrase to affirm national resilience and civic order."	"the great body of our people are stable, patriotic, and law-abiding."	national character; civic order; patriotism; law-abiding	https://millercenter.org/the-presidency/presidential-speeches/march-4-1889-inaugural-address	Miller Center (UVA)	Positive group framing: emphasizes the stability/patriotism of the majority of Americans.
+REC-0046	Benjamin Harrison	1889–1893	###############################################################################################################################################################################################################################################################	1892	Proclamation 334—Law and Order in State of Idaho	Proclamation	Residents of Idaho; U.S. public	Coeur d'Alene labor conflict / violence; federal call to restore order	persons engaged in unlawful combinations and assemblages	Violent rioters / unlawful assemblages	Negative	Declares the situation a crisis of law and order and directly commands participants in unlawful combinations to disperse.	I do hereby command and warn all persons engaged in such unlawful combinations and assemblages to disperse and retire peaceably to their respective abodes	labor violence; unlawful assemblage; domestic violence; public order	https://www.presidency.ucsb.edu/documents/proclamation-334-law-and-order-state-idaho	The American Presidency Project (UCSB)	"Replaces inaugural with a more developed, crisis-oriented condemnation."
+REC-0047	Grover Cleveland	1893–1897	1893-03-04	1893	Second Inaugural Address	Inaugural address	The American people	Start of Cleveland’s second term amid economic uncertainty; appeals to civic responsibility and mutual confidence.	every citizen	Americans (citizens) / civic duty	Positive	Frames citizens as capable moral agents with shared responsibility for just government and national welfare.	I believe that our strength and safety depend upon the enlightened and patriotic care of every citizen	civic duty; patriotism; responsibility; governance	https://millercenter.org/the-presidency/presidential-speeches/march-4-1893-second-inaugural-address	Miller Center (UVA)	Positive group framing: emphasizes ‘every citizen’ as enlightened/patriotic steward of public welfare.
+REC-0048	Grover Cleveland	1893–1897	###############################################################################################################################################################################################################################################################	1894	Proclamation 366—Protection against Domestic Violence in the State of Illinois	Proclamation	Residents of Illinois; U.S. public	Pullman Strike / railroad disruptions; federal intervention	persons engaged in unlawful obstructions and assemblages	Strike obstructions / unlawful assemblages	Negative	Frames obstructers and participants in violence as unlawful and orders immediate dispersal; authorizes federal force if needed.	to disperse and retire peaceably to their respective abodes	strike; domestic violence; railroads; federal intervention; public order	https://www.presidency.ucsb.edu/documents/proclamation-366-protection-against-domestic-violence-the-state-illinois	The American Presidency Project (UCSB)	Substitutes a major domestic-crisis proclamation for the inaugural.
+REC-0049	William McKinley	1897–1901	1897-03-04	1897	Inaugural Address	Inaugural address	The American people	Start of McKinley presidency after economic depression; stresses national unity and prosperity.	the sturdy farmers of America	Occupational group / farmers	Positive	"Praises farmers as foundational to the nation’s welfare and prosperity, emphasizing their importance and stability."	Let us remember that the sturdy farmers of America are the basis of our prosperity	prosperity; agriculture; national economy; unity	https://millercenter.org/the-presidency/presidential-speeches/march-4-1897-inaugural-address	Miller Center (UVA)	Positive group framing: explicit praise of farmers as the basis of prosperity.
+REC-0050	William McKinley	1897–1901	###############################################################################################################################################################################################################################################################	1899	Third Annual Message	Annual Message to Congress	Congress; national public	Debates over federal jurisdiction after repeated lynchings of foreign nationals	blind mob fury	Mob violence / lynchers	Negative	"Condemns lynchers as a recurring “blind mob fury,” highlighting failure of punishment and urging federal action."	The recurrence of these distressing manifestations of blind mob fury	lynching; mob violence; aliens/foreign nationals; federal jurisdiction	https://www.presidency.ucsb.edu/documents/third-annual-message-15	The American Presidency Project (UCSB)	Replaces inaugural with a detailed annual message addressing a concrete domestic issue.
+REC-0051	Theodore Roosevelt	1901–1909	1901-12-03	1901	First Annual Message	Annual message to Congress	U.S. Congress	First annual message after McKinley’s assassination; outlines domestic/foreign policy plus military readiness and modernization.	The American cavalryman	Military / U.S. Army (cavalry)	Positive	Explicitly praises American cavalrymen as an elite ‘best type of soldier’ and describes their training/skills as exemplary.	is the best type of soldier for general purposes now to be found in the world.	military; army reform; readiness; national defense	https://millercenter.org/the-presidency/presidential-speeches/december-3-1901-first-annual-message	Miller Center (UVA)	Positive group framing: direct superlative praise of a U.S. military subgroup.
+REC-0052	Theodore Roosevelt	1901–1909	1901-12-03	1901	First Annual Message	Annual message to Congress	U.S. Congress	McKinley assassination; Roosevelt condemns anarchist violence and warns against incitement that threatens democratic government.	that body of criminals who object to all governments	Criminals / anarchists / anti-government extremists	Negative	"Defines and condemns the group as criminal, anti-government, and hostile to lawful popular liberty—framing them as a threat to democracy and order."	an utterly depraved criminal belonging to that body of criminals who object to all governments	anarchism; political violence; public order; assassination; extremism	https://millercenter.org/the-presidency/presidential-speeches/december-3-1901-first-annual-message	Miller Center (UVA)	Negative group framing: explicitly labels anarchist-identified anti-government actors as a criminal class.
+REC-0053	William Howard Taft	1909–1913	1909-03-04	1909	Inaugural Address	Inaugural address	The American people	Start of Taft presidency; emphasizes continuity with Roosevelt reforms and confidence in democratic self-government.	the sober sense and mature judgment of the people	Americans (citizens) / civic character	Positive	Praises the public’s ‘sober sense’ and ‘mature judgment’ as a stabilizing force for reform and governance.	the sober sense and mature judgment of the people	civic virtue; democratic judgment; reform; governance	https://millercenter.org/the-presidency/presidential-speeches/march-4-1909-inaugural-address	Miller Center (UVA)	Positive group framing: emphasizes the people’s maturity and sound judgment.
+REC-0054	William Howard Taft	1909–1913	1909-03-04	1910	Special Message to Congress (re Sherman Act / federal incorporation)	Special Message to Congress (re Sherman Act / federal incorporation)	Congress; national public	re Sherman Act / federal incorporation	those who attempt to monopoloze	Monopolists	Negative	he frames monopoly behavior as not just illegal but socially harmful	"the monopoly or attempt to monopolize… must be restrained and punished until ended … not only unlawful, but contrary to the public good"""	monopoly	https://www.presidency.ucsb.edu/documents/special-message-378	Presidency project	Negative group framing: denounces advocates of violence as undermining lawful reform.
+REC-0055	Woodrow Wilson	1913–1921	1913-03-04	1913	Inaugural Address	Inaugural address	The American people	Start of Wilson’s presidency; Progressive Era reform agenda focused on economic justice and restoring opportunity.	been obliged to use their strength and their skill to serve	Working people / laborers	Positive	"Frames working Americans as deserving fairness and protection from exploitation, emphasizing their dignity and contribution."	to the service of those who have been obliged to use their strength and their skill	Progressive Era; labor; economic justice; reform	https://millercenter.org/the-presidency/presidential-speeches/march-4-1913-inaugural-address	Miller Center (UVA)	Positive group framing: elevates the dignity of working people and centers reform on their welfare.
+REC-0056	Woodrow Wilson	1913–1921	1919-09-25	1919	"Address at the Princess Theater in Cheyenne, Wyoming"	Address / remarks	Public audience (League of Nations / Treaty tour)	1919 tour promoting the Treaty of Versailles / League of Nations; domestic opposition	hyphenated Americans (portrayed as disloyal Americans)	Anti-treaty activists / 'hyphenated Americans' (as framed by Wilson)	Negative	"Wilson targets ""hyphenated Americans"" as a suspect internal group, accusing them of divided loyalty and framing them as undermining the treaty effort."	The only organized forces in this country which are fighting this treaty are the forces of hyphenated Americans. There are pro-German forces everywhere	WWI; loyalty; nationalism; dissent	https://www.presidency.ucsb.edu/documents/address-the-princess-theater-cheyenne-wyoming	The American Presidency Project (UCSB)	Replaces inaugural with a later speech; date should be verified against the source header if you need absolute precision.
+REC-0057	Warren G. Harding	1921–1923	1921-11-11	1921	Address at the Burial of an Unknown American Soldier at Arlington Cemetery	Spoken address	Public ceremony at Arlington National Cemetery	Post–World War I commemoration; burial of the Unknown Soldier; national mourning and a push for peace and civic unity.	thousands of Americans who have given their blood for the baptism of freedom	Veterans / U.S. war dead / soldiers	Positive	"Offers reverence and gratitude to Americans who served and died, portraying them as heroic defenders of freedom and national conscience."	Sleeping in these hallowed grounds are thousands of Americans who have given their blood for the baptism of freedom	World War I; veterans; commemoration; national unity; peace	https://www.presidency.ucsb.edu/documents/address-the-burial-unknown-american-soldier-arlington-cemetery	The American Presidency Project (UCSB)	"Deeper pick than an inaugural: extended ceremonial address with developed moral framing of service, sacrifice, and national duty."
+REC-0058	Warren G. Harding	1921–1923	1921-08-30	1921	Proclamation 1606—Protection Against Domestic Violence in West Virginia	Proclamation	State of West Virginia / public notice	West Virginia coalfield violence and armed march (late Aug 1921); federal response to domestic violence/insurrectionary proceedings.	all persons engaged in said unlawful and insurrectionary proceedings	Insurgents / armed bands / lawbreakers (coalfield violence)	Negative	"Directly labels the group’s actions as “unlawful” and “insurrectionary,” commanding dispersal and submission to authorities—strong condemnation with enforcement threat."	command all persons engaged in said unlawful and insurrectionary proceedings to disperse and retire peaceably	labor conflict; domestic violence; insurrection; West Virginia; proclamation; federal force	https://www.presidency.ucsb.edu/documents/proclamation-1606-protection-against-domestic-violence-west-virginia	The American Presidency Project (UCSB)	More ‘damning’ than inaugurals: legal/forceful language targeting a specific group for unlawful actions during a crisis.
+REC-0059	Calvin Coolidge	1923–1929	1923-12-06	1923	First Annual Message	Annual message to Congress	U.S. Congress	"Coolidge’s first annual message after succeeding Harding; outlines domestic priorities and post–WWI obligations, including veterans’ care."	its veterans	Veterans / former service members	Positive	Frames veterans as owed a primary national duty and calls for care administered with “the broadest and deepest human sympathy.”	No more important duty falls on the Government of the United States than the adequate care of its veterans.	veterans; public duty; postwar care; welfare policy	https://www.presidency.ucsb.edu/documents/first-annual-message-20	The American Presidency Project (UCSB)	"Non-inaugural, developed policy text: strong affirmative obligation toward veterans (care, hospitals, compensation)."
+REC-0060	Calvin Coolidge	1923–1929	1924-12-03	1924	Second Annual Message	Annual message to Congress	U.S. Congress	Written annual message emphasizing domestic policy issues including criminal justice reforms and prison reform.	banned criminals	Criminals / lawbreakers	Negative	Coolidge describes criminals as a harmful influence and supports reforms to separate first offenders from hardened criminal elements.	"""...segregating them from contact with banned criminals..."""	crime; criminal justice; prison reform; domestic policy	https://www.presidency.ucsb.edu/documents/second-annual-message-18	The American Presidency Project	‘More damning’ developed text: frames certain immigrants/aliens as undesirable if they won’t adopt the ‘American spirit’; calls for restriction + registration.
+REC-0061	Herbert Hoover	1929–1933	1929-12-03	1929	First Annual Message	Annual message to Congress	U.S. Congress	Early Great Depression period; Hoover emphasizes voluntary cooperation and organized civic action as a hallmark of American life.	the generous cooperation of our people	Americans (citizens) / civic cooperation	Positive	Praises the public’s voluntary cooperation and community action as essential to meeting national challenges.	the generous cooperation of our people	Great Depression; civic cooperation; voluntarism; community relief	https://www.presidency.ucsb.edu/documents/first-annual-message-24	The American Presidency Project (UCSB)	"Non-inaugural, developed text: frames civic cooperation/voluntarism as an American strength in crisis."
+REC-0062	Herbert Hoover	1929–1933	1930-12-02	1930	Second Annual Message	Annual message to Congress	U.S. Congress	Deepening Depression; ongoing Prohibition enforcement controversies; concerns about organized lawbreaking and public corruption.	organized criminals engaged in the liquor traffic	Organized crime / bootleggers	Negative	"Condemns a specific group as organized criminals and frames them as corrupting law enforcement and public life—strong, explicit denunciation."	organized criminals engaged in the liquor traffic	Prohibition; organized crime; law enforcement; corruption; bootlegging	https://www.presidency.ucsb.edu/documents/second-annual-message-9	The American Presidency Project (UCSB)	More ‘damning’ developed text: targets organized criminals/bootleggers as a threat to law and public integrity.
+REC-0063	Franklin D. Roosevelt	1933–1945	1933-03-12	1933	Fireside Chat 1: On the Banking Crisis	Radio address (Fireside Chat)	American public (radio)	Banking crisis and bank holiday; FDR explains emergency banking actions and urges calm public confidence.	the people of this country	Americans (citizens) / public confidence	Positive	Praises Americans’ calmness and cooperation during the bank holiday and frames collective confidence as essential to recovery.	I can assure you that it is safer to keep your money in a reopened bank than under the mattress.	Great Depression; banking crisis; public confidence; emergency policy; communication	https://www.presidency.ucsb.edu/documents/fireside-chat-1-banking-crisis	The American Presidency Project (UCSB)	"Non-inaugural, policy-forward: a major crisis communication praising public cooperation and urging trust in institutions."
+REC-0064	Franklin D. Roosevelt	1933–1945	1936-10-31	1936	"Address at Madison Square Garden, New York City"	Campaign address / presidential speech	Public audience (NYC)	New Deal coalition politics; defense of reforms and attack on concentrated private power during the 1936 election.	economic royalists	Economic elites / anti–New Deal interests	Negative	Explicitly condemns a domestic power group as seeking to control government and undermine reforms; frames them as hostile to democracy and the ‘common welfare.’	They are unanimous in their hate for me—and I welcome their hatred.	New Deal; economic power; elites; populism; democracy; class conflict	https://www.presidency.ucsb.edu/documents/address-madison-square-garden-new-york-city	The American Presidency Project (UCSB)	More ‘damning’ developed text: direct rhetorical attack on ‘economic royalists’ as a threatening domestic group.
+REC-0065	Harry S. Truman	1945–1953	1947-06-29	1947	Address Before the National Association for the Advancement of Colored People	Spoken address	NAACP conference attendees (Lincoln Memorial)	Civil rights agenda and post–World War II democracy framing; Truman advocates for civil rights as a national priority.	the National Association for the Advancement of Colored People	Civil rights organization	Positive	Directly congratulates the NAACP for its effective work improving democratic processes.	The occasion of meeting with you here at the Lincoln Memorial affords me the opportunity to congratulate the association upon its effective work for the improvement of our democratic processes.	civil rights; democracy; equality; NAACP	https://www.presidency.ucsb.edu/documents/address-before-the-national-association-for-the-advancement-colored-people	The American Presidency Project (UCSB)	Verbatim sentence from APP transcript; positive evaluation of a named American organization.
+REC-0066	Harry S. Truman	1945–1953	1947-03-21	1947	Executive Order 9835—Prescribing Procedures for the Administration of an Employees Loyalty Program in the Executive Branch of the Government	Executive order	Executive branch departments/agencies; public record	Early Cold War domestic security concerns; establishes loyalty investigations and boards for federal employees.	any disloyal or subversive person	Disloyal/subversive persons (as defined by loyalty program)	Negative	Defines the presence of disloyal/subversive persons in government service as a threat to democratic processes.	"WHEREAS, although the loyalty of by far the overwhelming majority of all Government employees is beyond question, the presence within the Government service of any disloyal or subversive person constitutes a threat to our democratic processes; and"	Cold War; loyalty program; internal security; subversion	https://www.presidency.ucsb.edu/documents/executive-order-9835-prescribing-procedures-for-the-administration-employees-loyalty	The American Presidency Project (UCSB)	Verbatim preamble sentence from APP transcript; explicit negative characterization of a targeted group.
+REC-0067	Dwight D. Eisenhower	1953–1961	1957-09-24	1957	Radio and Television Address to the American People on the Situation in Little Rock	Major address to the nation (radio/TV)	American public (radio/television)	Little Rock school desegregation crisis; Eisenhower explains federal enforcement of court orders and appeals to lawful civic conduct.	the overwhelming majority of our people in every section of the country	Americans (citizens) / law-abiding majority	Positive	"Praises the broad public for respect for law even amid disagreement, framing them as united and responsible citizens."	The overwhelming majority of our people in every section of the country are united in their respect for observance of the law	civil rights; desegregation; rule of law; federal courts; public order	https://www.presidency.ucsb.edu/documents/radio-and-television-address-the-american-people-the-situation-little-rock	The American Presidency Project (UCSB)	Verbatim excerpt (short clause) from the Little Rock address praising the law-respecting majority.
+REC-0068	Dwight D. Eisenhower	1953–1961	1957-09-24	1957	Radio and Television Address to the American People on the Situation in Little Rock	Major address to the nation (radio/TV)	American public (radio/television)	Little Rock school desegregation crisis; Eisenhower condemns obstruction and violence preventing compliance with federal court orders.	demagogic extremists	Extremists / agitators / disorderly mobs (obstructionists)	Negative	"Strongly condemns the group as demagogic and disorderly, blaming them for deliberate obstruction of federal court orders."	"under the leadership of demagogic extremists, disorderly mobs have deliberately prevented the carrying out of proper orders from a Federal Court"	civil rights; desegregation; mob violence; extremism; obstruction of justice; federal enforcement	https://www.presidency.ucsb.edu/documents/radio-and-television-address-the-american-people-the-situation-little-rock	The American Presidency Project (UCSB)	Verbatim excerpt (one sentence clause) from the Little Rock address condemning extremists and mobs for obstructing the courts.
+REC-0069	John F. Kennedy	1961–1963	1962-10-10	1962	Remarks Upon Signing Bill for the Construction of Mental Retardation Facilities and Community Mental Health Centers	Remarks	Congress; national public	Signing of law	congress	Congress men / disabled population	Positive	"Last Bill kennedy signed, to provide resources for mental health services and research"	The mentally ill and the mentally retarded need no longer be alien to our affections or beyond the help of our communities.	mental health	https://www.presidency.ucsb.edu/documents/remarks-upon-signing-bill-for-the-construction-mental-retardation-facilities-and-community	The American Presidency Project (UCSB)	Verbatim excerpt from JFK remarks praising federal prosecutors for results in anti-crime efforts.
+REC-0070	John F. Kennedy	1961–1963	1962-10-10	1962	Proclamation 3554—Obstructions of Justice in the State of Alabama	Proclimations	Alabama	"The governor of Alabama had deployed the Alabama National Guard to stop African-American students from attending all-white public schools across many cities in Alabama. President Kennedy invoked the Insurrection Act, federalized the Alabama Guard, and ordered it stand down."	alabama national guard	racists	Negative	Federalizes national guard and orders them to stand down	"Whereas the Governor of the State of Alabama, together with certain other officials of that State, and other persons, individually and in unlawful assemblies, combinations, and conspiracies, have been and are willfully opposing and obstructing the execution of the laws of the United States"	organized crime; racketeering; enforcement; prosecution; gambling	https://www.presidency.ucsb.edu/documents/proclamation-3554-obstructions-justice-the-state-alabama	The American Presidency Project (UCSB)	Verbatim excerpt from JFK remarks describing pressure applied to criminals/racketeers.
+REC-0071	Lyndon B. Johnson	1963–1969	1965-03-15	1965	Speech Before Congress on Voting Rights	Speech to Congress	U.S. Congress	Selma voting-rights protests and violence; Johnson urges Congress to pass a voting rights bill and frames the struggle as a national moral test.	long-suffering men and women	Civil rights protesters / African American citizens (Selma)	Positive	Describes the protesters as long-suffering and peaceful while asserting their status as Americans seeking their rights.	"There, long-suffering men and women peacefully protested the denial of their rights as Americans."	civil rights; voting rights; Selma; equality; protest; democracy	https://millercenter.org/the-presidency/presidential-speeches/march-15-1965-speech-congress-voting-rights	Miller Center (UVA)	Verbatim sentence describing the Selma protesters as peaceful Americans seeking their rights.
+REC-0072	Lyndon B. Johnson	1963–1969	1965-03-26	1965	Sent Federal Troops to protect civil rights marchers during Selma	Proclimations	Alabama	"In fights against CR activists, Johnson federalized the AL "	a hooded society of bigots	Ku Klux Klan / white supremacist vigilantes	Negative	"Directly condemns the Klan as bigoted and disloyal, framing them as a threat to community peace and the United States."	"the Governor of the State of Alabama has advised me that the state is unable and refuses to provide for the safety and welfare, among others, of the plaintiffs and the members of the class they represent"	anti-civil rights; terrorism; civil rights; violence; law enforcement; bigotry	https://www.presidency.ucsb.edu/documents/proclamation-3645-providing-federal-assistance-the-state-alabama	The American Presidency Project (UCSB)	Verbatim sentence: taking state troops and mobilizing them under the fed
+REC-0073	Richard Nixon	1969–1974	1969-11-03	1969	Address to the Nation on the War in Vietnam	Radio and television address (Major to the Nation)	American public (radio/television)	Vietnam War and widespread domestic protest; Nixon appeals to public support for his approach to ending the war and maintaining national unity.	the great silent majority of my fellow Americans	Americans (silent majority) / national public	Positive	"Frames a broad group of Americans as 'great' and centers them as legitimate national voice, asking for their support as a stabilizing majority."	"And so tonight--to you, the great silent majority of my fellow Americans--I ask for your support."	Vietnam War; public opinion; national unity; silent majority; patriotism	https://www.presidency.ucsb.edu/documents/address-the-nation-the-war-vietnam	The American Presidency Project (UCSB)	Verbatim sentence from the address emphasizing the 'great silent majority' as a valued national constituency.
+REC-0074	Richard Nixon	1969–1974	1972-02-03	1972	"Conversation Among President Nixon, the President’s Assistant for National Security Affairs (Kissinger), and the President’s Deputy Assistant for National Security Affairs (Haig)1"	Conversation in Oval Office	kissenger	Talking about political enemies	kissenger	"Liberals, press, professors"	Negative	Explicitly targets drug pushers for punishment and describes a nationwide 'all-out offensive' against them—strong condemnation and enforcement framing.	"The press is the enemy. The press is the enemy. The establishment is the enemy. The professors are the enemy. Professors are the enemy. Write that on the blackboard 100 times and never forget it.
+"	war on drugs; law enforcement; youth; public health; crime	https://history.state.gov/historicaldocuments/frus1969-76v09/d175	US History	Verbatim sentence from the remarks describing a nationwide offensive to punish drug pushers.
+REC-0075	Gerald Ford	1974–1977	1975-01-15	1975	Address Before a Joint Session of the Congress Reporting on the State of the Union	State of the Union address	U.S. Congress	Mid-1970s stagflation and post-Watergate trust crisis; Ford appeals for public confidence and shared sacrifice to address inflation and recession.	the American people	Americans (citizens) / public trust	Positive	"Addresses and elevates the public as partners in national recovery, directly appealing to their civic trust and engagement."	"I ask the American people to take this to heart: I have not asked you to believe in my infallibility, but I have asked you to believe in my sincerity."	economy; inflation; recession; public trust; governance	https://www.presidency.ucsb.edu/documents/address-before-joint-session-the-congress-reporting-the-state-the-union-2	The American Presidency Project (UCSB)	Verbatim sentence directly addressing the American people and appealing to civic trust in presidential sincerity.
+REC-0076	Gerald Ford	1974–1977	1974-09-16	1974	Proclamation 4363—Announcing a Program for the Return of Vietnam Era Draft Evaders and Military Deserters	Proclamation	Public / eligible individuals	Post–Vietnam War reconciliation; Ford issues a clemency program requiring alternative service for certain draft evaders/deserters.	draft evaders and military deserters	Draft evaders / deserters	Negative	"Defines the group as having broken obligations (evaded or deserted) and subjects them to a structured clemency/alternative service process, implicitly condemning the conduct."	The return of these persons is essential to the restoration of harmony within our Nation and to the healing of the wounds of war.	Vietnam War; draft; desertion; clemency; national reconciliation; obligations	https://www.presidency.ucsb.edu/documents/proclamation-4363-announcing-program-for-the-return-vietnam-era-draft-evaders	The American Presidency Project (UCSB)	Verbatim sentence referencing return of draft evaders/deserters as necessary for national healing; group is singled out for remedial program due to prior evasion/desertion.
+REC-0077	Jimmy Carter	1977–1981	1979-07-15	1979	"Address to the Nation on Energy and National Goals (""Crisis of Confidence"")"	Radio and television address	American public (radio/television)	"Energy crisis and economic malaise; Carter urges national unity and a shift in values and goals, warning of a 'crisis of confidence.'"	good and decent people	Americans (citizens) / public	Positive	"Frames Americans as earnest and seeking honest leadership, implying moral seriousness and civic decency in the public."	"The people are looking for honest answers, not easy answers; clear leadership, not false claims and evasiveness and politics as usual."	energy crisis; national unity; civic values; leadership; trust	https://www.presidency.ucsb.edu/documents/address-the-nation-energy-and-national-goals	The American Presidency Project (UCSB)	Verbatim sentence describing the public’s desire for honest answers and clear leadership—affirming civic expectations.
+REC-0078	Jimmy Carter	1977–1981	1979-07-15	1979	"Address to the Nation on Energy and National Goals (""Crisis of Confidence"")"	Radio and television address	American public (radio/television)	Carter diagnoses political and social malaise; criticizes manipulation of public opinion and policy by entrenched interests.	powerful special interests	Special interests / entrenched power	Negative	Assigns blame to 'powerful special interests' for misdirecting public frustration and undermining collective problem-solving.	"They've convinced the people that their problems are the fault of government, the fault of labor, the fault of each other, and not the fault of powerful special interests."	special interests; political cynicism; blame shifting; governance; public trust	https://www.presidency.ucsb.edu/documents/address-the-nation-energy-and-national-goals	The American Presidency Project (UCSB)	Verbatim sentence explicitly blaming 'powerful special interests' for shaping public blame narratives.
+REC-0079	Ronald Reagan	1981–1989	1984-06-06	1984	"Remarks at a Ceremony Commemorating the 40th Anniversary of the Normandy Invasion, D-day"	Spoken remarks	"Veterans/public ceremony (Pointe du Hoc, France)"	40th anniversary of D-Day; Reagan honors U.S. Army Rangers and Allied forces and uses the commemoration to reaffirm democratic resolve.	nation of immigrants	American Immigrants	Positive	Explicit tribute identifying the Rangers as exemplars of heroism and sacrifice at D-Day commemoration.	"Our nation is a nation of immigrants. More than any other country, our strength comes from our own immigrant heritage"	World War II; D-Day; veterans; commemoration; patriotism; sacrifice	https://www.presidency.ucsb.edu/documents/remarks-ceremony-commemorating-the-40th-anniversary-the-normandy-invasion-d-day	The American Presidency Project (UCSB)	Verbatim single-sentence identification from the Pointe du Hoc address.
+REC-0080	Ronald Reagan	1981–1989	1986-09-14	1986	Remarks at a White House Briefing for the Coalition for Fiscal Restraint	White house members	American public (television)	talks about political opponents to fiscal restraint	Iron Triangle	"Press, congressmen, special interests"	Negative	Alludes to corruption	"You know, some have questioned the accuracy of my description last month of an ``iron triangle'' composed of some members of Congress, the media, and special interest groups, which work against our efforts for fiscal responsibility in order to increase the size of government"	policy; press; congress; special interests	https://www.reaganlibrary.gov/archives/speech/remarks-white-house-briefing-coalition-fiscal-restraint	Reagan Library	Verbatim sentence describing convictions and seizures targeting drug criminals.
+REC-0081	George H. W. Bush	1989–1993	1990-09-11	1990	Address Before a Joint Session of the Congress on the Persian Gulf Crisis and the Federal Budget Deficit	Address to Congress	U.S. Congress	Iraq’s invasion of Kuwait; U.S. coalition buildup and debate over use of force; Bush frames objectives and supports the troops while addressing domestic budget issues.	our men and women in uniform	Military / service members	Positive	Directly praises service members and expresses national pride in their conduct and duty.	And let me say to our men and women in uniform: We are deeply proud of you.	Gulf War; military; patriotism; national unity; foreign policy	https://www.presidency.ucsb.edu/documents/address-before-joint-session-the-congress-the-persian-gulf-crisis-and-the	The American Presidency Project (UCSB)	Verbatim sentence praising ‘our men and women in uniform’ during the Gulf crisis.
+REC-0082	George H. W. Bush	1989–1993	1989-09-05	1989	Address to the Nation on the National Drug Control Strategy	Address to the nation (television)	American public (television)	Prime-time address outlining a national drug control strategy and calling for tougher law enforcement against drug crimes.	drug dealers	Drug pushers / dealers	Negative	Bush frames drug dealers as criminals who endanger American communities and calls for swift and certain punishment.	"""these deadbeat fathers…”
+“those that leave mothers with paying all the bills.”
+“We’re cracking down on those people"""	crime; drugs; law enforcement; domestic policy	https://www.govinfo.gov/content/pkg/PPP-1992-book2/html/PPP-1992-book2-doc-pg2107.htm	Gov Info.gov	Verbatim sentence stating objective to force Iraqi/Saddam’s forces to leave Kuwait.
+REC-0083	Bill Clinton	1993–2001	1995-04-21	1995	Remarks and an Exchange With Reporters on the Oklahoma City Bombing	Exchange with reporters / remarks	Press briefing (White House)	After the Oklahoma City bombing; Clinton updates the public and praises investigative and rescue response while urging restraint as the investigation continues.	law enforcement officials	Law enforcement / investigators	Positive	"Expresses pride in law enforcement’s swift, decisive work, framing them as competent protectors and agents of justice."	First let me say how very proud I am of the swift and decisive and determined work of law enforcement officials on this case throughout the country.	Oklahoma City; law enforcement; investigation; terrorism; justice	https://www.presidency.ucsb.edu/documents/remarks-and-exchange-with-reporters-the-oklahoma-city-bombing-0	The American Presidency Project (UCSB)	"Verbatim sentence praising law enforcement officials for swift, decisive work on the case."
+REC-0084	Bill Clinton	1993–2001	1995-04-19	1995	"Remarks on the Bombing of the Alfred P. Murrah Federal Building in Oklahoma City, Oklahoma"	Spoken remarks	Press briefing (White House)	Immediate response to the Oklahoma City bombing; Clinton condemns the perpetrators and promises swift and severe justice.	These people are killers	Bombing perpetrators / murderers / domestic terrorists	Negative	"Directly labels the perpetrators as killers and calls for severe treatment, using forceful moral and legal condemnation."	"These people are killers, and they must be treated like killers."	Oklahoma City; domestic terrorism; mass murder; justice; condemnation	https://www.presidency.ucsb.edu/documents/remarks-the-bombing-the-alfred-p-murrah-federal-building-oklahoma-city-oklahoma	The American Presidency Project (UCSB)	Verbatim sentence condemning the bombing perpetrators as killers and demanding severe treatment.
+REC-0085	George W. Bush	2001–2009	2001-09-14	2001	"Address to the Nation Delivered at the National Cathedral, Washington, D.C."	Address to the nation	American public / memorial service	"After the September 11 attacks; national mourning and resolve; Bush frames unity, comfort for victims’ families, and determination to confront terrorism."	the American people	Americans (citizens) / nation in mourning	Positive	Centers national solidarity and shared resilience; addresses the American people as a unified community facing tragedy together.	"The American people have known casualties, but not at this scale."	9/11; national unity; mourning; resilience; terrorism	https://www.presidency.ucsb.edu/documents/address-the-nation-delivered-the-national-cathedral-washington-dc	The American Presidency Project (UCSB)	Verbatim sentence from the National Cathedral address referencing the American people in the context of shared loss.
+REC-0086	George W. Bush	2001–2009	2002-07-30	2002	President Calls for Constitutional Amendment Protecting Marriage	Call to Action	American public (White House)	Bill signing after major corporate scandals; emphasizes corporate accountability and punishing fraud in corporate America.	every dishonest corporate leader	Financial sector / Wall Street speculators	Negative	Bush condemns dishonest corporate leaders for fraud and deception and emphasizes punishment and accountability under the new law.	"The American people have known casualties, but not at this scale."	corporate fraud; business ethics; regulation; accountability	https://www.presidency.ucsb.edu/documents/remarks-signing-the-sarbanes-oxley-act-2002	The American Presidency Project	Verbatim sentence describing terrorists' ideology as fringe extremism and separating it from broader Islam.
+REC-0087	Barack Obama	2009–2017	2012-06-12	2012	Remarks on Immigration	Major address to the Nation (spoken remarks)	American public (television)	Announcement of DACA	"for all intents and purposes, are americans"	Dreamers/Immigrants	Positive	"Praises ""Dreamers"" in the wake of the signing of DACA"	"it makes no sense to expel talented young people, who, for all intents and purposes, are Americans -- they’ve been raised as Americans; understand themselves to be part of this country"	immigration	https://obamawhitehouse.archives.gov/the-press-office/2012/06/15/remarks-president-immigration	white house archives	sentence
+REC-0088	Barack Obama	2009–2017	2010-04-28	2010	"Press Release: Remarks of President Barack Obama at a Wall Street Reform Rally in Quincy, Illinois - As Prepared for Delivery"	Speech (as prepared for delivery)	"Public rally audience (Quincy, Illinois)"	Push for financial reform after the 2008 crisis; Obama argues for stronger rules and criticizes behavior that contributed to the crash.	reckless and irresponsible speculation on Wall Street	Financial sector / Wall Street speculators	Negative	"Explicitly attributes a historic crisis to reckless and irresponsible Wall Street behavior, assigning blame to that group."	"When I took office, we were in the midst of an historic financial crisis brought on by reckless and irresponsible speculation on Wall Street."	financial crisis; Wall Street; regulation; responsibility; reform	https://www.presidency.ucsb.edu/documents/press-release-remarks-president-barack-obama-wall-street-reform-rally-quincy-illinois	The American Presidency Project (UCSB)	Verbatim sentence attributing the crisis to reckless and irresponsible speculation on Wall Street.
+REC-0089	Donald Trump	2017–2021	2019-01-08	2019	Address to the Nation on Border Security	"Major address to the nation (Oval Office, television)"	American public (television)	Partial U.S. government shutdown and funding fight over border barrier; Trump frames border conditions as a humanitarian and security crisis and appeals for Congress to fund border security.	our brave border agents	Border Patrol / border agents (law enforcement)	Positive	Uses laudatory language (“brave”) and presents border agents as protectors of American families and the nation.	And they have refused to provide our brave border agents with the tools they desperately need to protect our families and our Nation.	border security; government shutdown; law enforcement; immigration; national security	https://www.presidency.ucsb.edu/documents/address-the-nation-border-security	The American Presidency Project (UCSB)	"Verbatim sentence praising border agents in the Jan. 8, 2019 Oval Office address."
+REC-0090	Donald Trump	2017–2021	2019-01-08	2019	Address to the Nation on Border Security	"Major address to the nation (Oval Office, television)"	American public (television)	"In arguing for border funding, Trump emphasizes migrant vulnerability and attributes exploitation to criminal smuggling networks and gangs."	vicious coyotes and ruthless gangs	Smugglers / coyotes / gangs (criminal groups)	Negative	"Describes the group with strongly condemnatory language (“vicious,” “ruthless”) and blames them for exploiting children."	These children are used as human pawns by vicious coyotes and ruthless gangs.	human trafficking; smuggling; gangs; border; crime; humanitarian crisis	https://www.presidency.ucsb.edu/documents/address-the-nation-border-security	The American Presidency Project (UCSB)	Verbatim sentence condemning smugglers/gangs as exploiting children.
+REC-0091	Joe Biden	2021–2025	2022-09-01	2022	"Address on United States Democracy in Philadelphia, Pennsylvania"	Major address to the Nation (spoken remarks)	American public (prime-time address)	Prime-time speech at Independence Hall framing threats to democracy and calling for broad civic unity against extremism.	far more Americans—far more Americans—from every background and belief who reject the extreme MAGA ideology	Americans (citizens) opposing extremism	Positive	"Affirms that a broad cross-section of Americans reject extremist ideology, emphasizing pluralism and civic responsibility across backgrounds and beliefs."	There are far more Americans—far more Americans—from every background and belief who reject the extreme MAGA ideology than those that accept it.	democracy; civic unity; extremism; elections; political violence	https://www.presidency.ucsb.edu/documents/address-united-states-democracy-philadelphia-pennsylvania	The American Presidency Project (UCSB)	Verbatim sentence emphasizing that more Americans from diverse backgrounds reject extremist ideology than accept it.
+REC-0092	Joe Biden	2021–2025	2022-09-01	2022	"Address on United States Democracy in Philadelphia, Pennsylvania"	Major address to the Nation (spoken remarks)	American public (prime-time address)	"In a speech about threats to democratic institutions, Biden singles out a political faction as undermining constitutional governance and election legitimacy."	MAGA Republicans	Domestic political faction (MAGA Republicans)	Negative	"Direct condemnation of a defined political group as rejecting constitutional norms, rule of law, and electoral legitimacy."	MAGA Republicans do not respect the Constitution. They do not believe in the rule of law. They do not recognize the will of the people.	democracy; constitution; rule of law; elections; extremism	https://www.presidency.ucsb.edu/documents/address-united-states-democracy-philadelphia-pennsylvania	The American Presidency Project (UCSB)	Verbatim three-sentence condemnation from the Independence Hall address.
+REC-0093		2025–present															
+REC-0094																	
+REC-0095																	
+REC-0096																	
+REC-0097																	
+REC-0098																	
+REC-0099																	
+REC-0100																	
+REC-0101																	
+REC-0102																	
+REC-0103																	
+REC-0104																	
+REC-0105																	
+REC-0106																	
+REC-0107																	
+REC-0108																	
+REC-0109																	
+REC-0110																	
+REC-0111																	
+REC-0112																	
+REC-0113																	
+REC-0114																	
+REC-0115																	
+REC-0116																	
+REC-0117																	
+REC-0118																	
+REC-0119																	
+REC-0120																	
+REC-0121																	
+REC-0122																	
+REC-0123																	
+REC-0124																	
+REC-0125																	
+REC-0126																	
+REC-0127																	
+REC-0128																	
+REC-0129																	
+REC-0130																	
+REC-0131																	
+REC-0132																	
+REC-0133																	
+REC-0134																	
+REC-0135																	
+REC-0136																	
+REC-0137																	
+REC-0138																	
+REC-0139																	
+REC-0140																	
+REC-0141																	
+REC-0142																	
+REC-0143																	
+REC-0144																	
+REC-0145																	
+REC-0146																	
+REC-0147																	
+REC-0148																	
+REC-0149																	
+REC-0150																	
+REC-0151																	
+REC-0152																	
+REC-0153																	
+REC-0154																	
+REC-0155																	
+REC-0156																	
+REC-0157																	
+REC-0158																	
+REC-0159																	
+REC-0160																	
+REC-0161																	
+REC-0162																	
+REC-0163																	
+REC-0164																	
+REC-0165																	
+REC-0166																	
+REC-0167																	
+REC-0168																	
+REC-0169																	
+REC-0170																	
+REC-0171																	
+REC-0172																	
+REC-0173																	
+REC-0174																	
+REC-0175																	
+REC-0176																	
+REC-0177																	
+REC-0178																	
+REC-0179																	
+REC-0180																	
+REC-0181																	
+REC-0182																	
+REC-0183																	
+REC-0184																	
+REC-0185																	
+REC-0186																	
+REC-0187																	
+REC-0188																	
+REC-0189																	
+REC-0190																	
+REC-0191																	
+REC-0192																	
+REC-0193																	
+REC-0194																	
+REC-0195																	
+REC-0196																	
+REC-0197																	
+REC-0198																	
+REC-0199																	
+REC-0200																	
+REC-0201																	
+REC-0202																	
+REC-0203																	
+REC-0204																	
+REC-0205																	
+REC-0206																	
+REC-0207																	
+REC-0208																	
+REC-0209																	
+REC-0210																	
+REC-0211																	
+REC-0212																	
+REC-0213																	
+REC-0214																	
+REC-0215																	
+REC-0216																	
+REC-0217																	
+REC-0218																	
+REC-0219																	
+REC-0220																	
+REC-0221																	
+REC-0222																	
+REC-0223																	
+REC-0224																	
+REC-0225																	
+REC-0226																	
+REC-0227																	
+REC-0228																	
+REC-0229																	
+REC-0230																	
+REC-0231																	
+REC-0232																	
+REC-0233																	
+REC-0234																	
+REC-0235																	
+REC-0236																	
+REC-0237																	
+REC-0238																	
+REC-0239																	
+REC-0240																	
+REC-0241																	
+REC-0242																	
+REC-0243																	
+REC-0244																	
+REC-0245																	
+REC-0246																	
+REC-0247																	
+REC-0248																	
+REC-0249																	
+REC-0250																	
+REC-0251																	
+REC-0252																	
+REC-0253																	
+REC-0254																	
+REC-0255																	
+REC-0256																	
+REC-0257																	
+REC-0258																	
+REC-0259																	
+REC-0260																	
+REC-0261																	
+REC-0262																	
+REC-0263																	
+REC-0264																	
+REC-0265																	
+REC-0266																	
+REC-0267																	
+REC-0268																	
+REC-0269																	
+REC-0270																	
+REC-0271																	
+REC-0272																	
+REC-0273																	
+REC-0274																	
+REC-0275																	
+REC-0276																	
+REC-0277																	
+REC-0278																	
+REC-0279																	
+REC-0280																	
+REC-0281																	
+REC-0282																	
+REC-0283																	
+REC-0284																	
+REC-0285																	
+REC-0286																	
+REC-0287																	
+REC-0288																	
+REC-0289																	
+REC-0290																	
+REC-0291																	
+REC-0292																	
+REC-0293																	
+REC-0294																	
+REC-0295																	
+REC-0296																	
+REC-0297																	
+REC-0298																	
+REC-0299																	
+REC-0300																	
+REC-0301																	
+REC-0302																	
+REC-0303																	
+REC-0304																	
+REC-0305																	
+REC-0306																	
+REC-0307																	
+REC-0308																	
+REC-0309																	
+REC-0310																	
+REC-0311																	
+REC-0312																	
+REC-0313																	
+REC-0314																	
+REC-0315																	
+REC-0316																	
+REC-0317																	
+REC-0318																	
+REC-0319																	
+REC-0320																	
+REC-0321																	
+REC-0322																	
+REC-0323																	
+REC-0324																	
+REC-0325																	
+REC-0326																	
+REC-0327																	
+REC-0328																	
+REC-0329																	
+REC-0330																	
+REC-0331																	
+REC-0332																	
+REC-0333																	
+REC-0334																	
+REC-0335																	
+REC-0336																	
+REC-0337																	
+REC-0338																	
+REC-0339																	
+REC-0340																	
+REC-0341																	
+REC-0342																	
+REC-0343																	
+REC-0344																	
+REC-0345																	
+REC-0346																	
+REC-0347																	
+REC-0348																	
+REC-0349																	
+REC-0350																	
+REC-0351																	
+REC-0352																	
+REC-0353																	
+REC-0354																	
+REC-0355																	
+REC-0356																	
+REC-0357																	
+REC-0358																	
+REC-0359																	
+REC-0360																	
+REC-0361																	
+REC-0362																	
+REC-0363																	
+REC-0364																	
+REC-0365																	
+REC-0366																	
+REC-0367																	
+REC-0368																	
+REC-0369																	
+REC-0370																	
+REC-0371																	
+REC-0372																	
+REC-0373																	
+REC-0374																	
+REC-0375																	
+REC-0376																	
+REC-0377																	
+REC-0378																	
+REC-0379																	
+REC-0380																	
+REC-0381																	
+REC-0382																	
+REC-0383																	
+REC-0384																	
+REC-0385																	
+REC-0386																	
+REC-0387																	
+REC-0388																	
+REC-0389																	
+REC-0390																	
+REC-0391																	
+REC-0392																	
+REC-0393																	
+REC-0394																	
+REC-0395																	
+REC-0396																	
+REC-0397																	
+REC-0398																	
+REC-0399																	
+REC-0400																	
+REC-0401																	
+REC-0402																	
+REC-0403																	
+REC-0404																	
+REC-0405																	
+REC-0406																	
+REC-0407																	
+REC-0408																	
+REC-0409																	
+REC-0410																	
+REC-0411																	
+REC-0412																	
+REC-0413																	
+REC-0414																	
+REC-0415																	
+REC-0416																	
+REC-0417																	
+REC-0418																	
+REC-0419																	
+REC-0420																	
+REC-0421																	
+REC-0422																	
+REC-0423																	
+REC-0424																	
+REC-0425																	
+REC-0426																	
+REC-0427																	
+REC-0428																	
+REC-0429																	
+REC-0430																	
+REC-0431																	
+REC-0432																	
+REC-0433																	
+REC-0434																	
+REC-0435																	
+REC-0436																	
+REC-0437																	
+REC-0438																	
+REC-0439																	
+REC-0440																	
+REC-0441																	
+REC-0442																	
+REC-0443																	
+REC-0444																	
+REC-0445																	
+REC-0446																	
+REC-0447																	
+REC-0448																	
+REC-0449																	
+REC-0450																	
+REC-0451																	
+REC-0452																	
+REC-0453																	
+REC-0454																	
+REC-0455																	
+REC-0456																	
+REC-0457																	
+REC-0458																	
+REC-0459																	
+REC-0460																	
+REC-0461																	
+REC-0462																	
+REC-0463																	
+REC-0464																	
+REC-0465																	
+REC-0466																	
+REC-0467																	
+REC-0468																	
+REC-0469																	
+REC-0470																	
+REC-0471																	
+REC-0472																	
+REC-0473																	
+REC-0474																	
+REC-0475																	
+REC-0476																	
+REC-0477																	
+REC-0478																	
+REC-0479																	
+REC-0480																	
+REC-0481																	
+REC-0482																	
+REC-0483																	
+REC-0484																	
+REC-0485																	
+REC-0486																	
+REC-0487																	
+REC-0488																	
+REC-0489																	
+REC-0490																	
+REC-0491																	
+REC-0492																	
+REC-0493																	
+REC-0494																	
+REC-0495																	
+REC-0496																	
+REC-0497																	
+REC-0498																	
+REC-0499																	
+REC-0500																	
+REC-0501																	
+REC-0502																	
+REC-0503																	
+REC-0504																	
+REC-0505																	
+REC-0506																	
+REC-0507																	
+REC-0508																	
+REC-0509																	
+REC-0510																	
+REC-0511																	
+REC-0512																	
+REC-0513																	
+REC-0514																	
+REC-0515																	
+REC-0516																	
+REC-0517																	
+REC-0518																	
+REC-0519																	
+REC-0520																	
+REC-0521																	
+REC-0522																	
+REC-0523																	
+REC-0524																	
+REC-0525																	
+REC-0526																	
+REC-0527																	
+REC-0528																	
+REC-0529																	
+REC-0530																	
+REC-0531																	
+REC-0532																	
+REC-0533																	
+REC-0534																	
+REC-0535																	
+REC-0536																	
+REC-0537																	
+REC-0538																	
+REC-0539																	
+REC-0540																	
+REC-0541																	
+REC-0542																	
+REC-0543																	
+REC-0544																	
+REC-0545																	
