@@ -243,7 +243,7 @@
   /* Card panel: sticky, JS aligns its midpoint to portrait midpoint */
   .card-panel {
     position: sticky;
-    top: 200px; /* overridden by JS */
+    top: 80px; /* overridden by JS in single-president view */
     z-index: 40;
     width: min(97vw, 1900px);
     margin: 60px auto 80px auto;
@@ -2019,8 +2019,10 @@ function alignCardPanels() {
     const stageStickyTop = parseInt(getComputedStyle(stage).top) || 140;
     const stageH = stage.offsetHeight;
     const panelH = panel.offsetHeight;
+    const panelMarginTop = parseInt(getComputedStyle(panel).marginTop) || 0;
     const portraitCenter = stageStickyTop + stageH / 2;
-    panel.style.top = Math.max(10, portraitCenter - panelH / 2) + 'px';
+    const CARD_OFFSET = 120; // raise cards this many px above portrait center
+    panel.style.top = Math.max(10, portraitCenter - panelH / 2 - panelMarginTop - CARD_OFFSET) + 'px';
   });
 }
 window.addEventListener('resize', alignCardPanels);
