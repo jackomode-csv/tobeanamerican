@@ -230,8 +230,8 @@
     display: flex; gap: 6px;
     pointer-events: all;
   }
-  /* Hide era nav and view toggle until at least one section is selected. */
-  #panel-chrome:not(.has-selection) .section-era-nav,
+  /* Hide the view toggle until at least one section is selected (the era nav
+     is always visible — clicking an era updates the URL even on the bare map). */
   #panel-chrome:not(.has-selection) .view-toggle { display: none; }
 
   /* Toggle */
@@ -1826,13 +1826,13 @@ function getCurrentPresidents() {
   return presidents;
 }
 
-function setEraFilter(era) {
+function setEraFilter(era, skipPush) {
   currentEraFilter = era;
   // Update button highlighting
   document.querySelectorAll('#section-era-nav .section-era-btn').forEach(b => {
     b.classList.toggle('active', b.dataset.era === era);
   });
-  // Reset position and re-render the current view
+  // Reset position and re-render the current view (no-op when no section selected)
   currentPresidentIndex = 0;
   buildNavBar();
   if (currentView === 'list') {
@@ -1840,6 +1840,7 @@ function setEraFilter(era) {
   } else {
     renderSingleView(0);
   }
+  if (!skipPush) pushPath(urlForState(selectedSections, currentEraFilter));
 }
 
 // ── SCREENS ──
@@ -1864,6 +1865,13 @@ function pathForSelection(sel) {
   if (!sel || sel.length === 0) return '/map';
   if (sel.length === 2) return '/all';
   return '/' + sel[0];
+}
+
+// URL representation of the current state: section selection + era filter.
+// Era is omitted when 'all' so the default is the cleanest path.
+function urlForState(selection, era) {
+  const path = pathForSelection(selection);
+  return (era && era !== 'all') ? path + '?era=' + encodeURIComponent(era) : path;
 }
 
 function pushPath(path) {
@@ -1897,7 +1905,21 @@ function findStory(section, presId, type) {
 
 function routeFromUrl() {
   var path = window.location.pathname.replace(/\/$/, '') || '/';
-  if (ROUTES[path]) { ROUTES[path](true); return; }
+  // Read ?era=... so era persists across refresh / back-forward.
+  var era = 'all';
+  var search = window.location.search;
+  if (search) {
+    var m = search.match(/[?&]era=([^&]+)/);
+    if (m) {
+      var v = decodeURIComponent(m[1]);
+      if (['all','beginning','middle','end'].indexOf(v) !== -1) era = v;
+    }
+  }
+  if (ROUTES[path]) {
+    ROUTES[path](true);
+    if (era !== 'all') setEraFilter(era, true);
+    return;
+  }
 
   // Dynamic: /{section}/{presId}/{type} or /data/{presId}/{type}
   var parts = path.split('/').filter(Boolean);
@@ -1969,7 +1991,7 @@ function setSelection(sections, skipPush) {
   document.querySelector('.map-click-zone.left' ).classList.toggle('active', selectedSections.indexOf('whitehouse')  !== -1);
   document.querySelector('.map-click-zone.right').classList.toggle('active', selectedSections.indexOf('peoplespark') !== -1);
   document.getElementById('panel-chrome').classList.toggle('has-selection', selectedSections.length > 0);
-  if (!skipPush) pushPath(pathForSelection(selectedSections));
+  if (!skipPush) pushPath(urlForState(selectedSections, currentEraFilter));
 
   showScreen('map-screen');
   setTimeout(fitMapInner, 50);
@@ -1985,12 +2007,9 @@ function setSelection(sections, skipPush) {
     return;
   }
 
-  // Reset era filter and position when selection changes.
+  // Reset position. Era filter persists across selection changes so the
+  // user's era choice (and its URL representation) is preserved.
   currentPresidentIndex = 0;
-  currentEraFilter = 'all';
-  document.querySelectorAll('#section-era-nav .section-era-btn').forEach(b => {
-    b.classList.toggle('active', b.dataset.era === 'all');
-  });
 
   // Show the bottom-fade gradient as a visual transition into the panel
   // peeking through underneath.
