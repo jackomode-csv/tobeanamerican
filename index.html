@@ -4,6 +4,17 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>T/B/AA — To Be An American</title>
+<script>
+  // SPA deep-link recovery: 404.html bounces /map → /?/map, this rewrites the URL back.
+  (function(l) {
+    if (l.search && l.search[1] === '/') {
+      var decoded = l.search.slice(1).split('&').map(function(s) {
+        return s.replace(/~and~/g, '&');
+      }).join('?');
+      window.history.replaceState(null, null, l.pathname.slice(0, -1) + decoded + l.hash);
+    }
+  }(window.location));
+</script>
 <style>
   * { hyphens: none !important; -webkit-hyphens: none !important; }
   @font-face {
@@ -50,8 +61,10 @@
     font-size: 38px; letter-spacing: 1px; line-height: 1;
     cursor: pointer; z-index: 100; user-select: none;
   }
-  .logo .t, .logo .slash { color: var(--green); }
-  .logo .b, .logo .aa { color: var(--black); }
+  /* Match the home title: first letter of each word + slashes are green;
+     the trailing A (the "American" half of AA) is black. */
+  .logo .t, .logo .slash, .logo .b, .logo .a { color: var(--green); }
+  .logo .aa { color: var(--black); }
 
   /* ── HOME ── */
   #home { background: var(--white); }
@@ -70,7 +83,9 @@
     line-height: 0.88; z-index: 20;
     animation: fadeUp 0.7s ease forwards;
   }
-  .home-title .line-green { color: var(--green); display: block; }
+  .home-title .line-tba { display: block; color: var(--black); }
+  .home-title .line-tba .g,
+  .home-title .line-tba .slash { color: var(--green); }
   .home-title .line-black { color: var(--black); display: block; }
 
   .home-enter {
@@ -95,10 +110,12 @@
   }
 
   /* MAP */
-  #map-screen { background: var(--white); }
+  #map-screen { background: var(--white); overflow-y: auto; overflow-x: hidden; }
+  /* Logo lives inside the chrome bar — flow as a normal flex item there. */
+  #panel-chrome .logo { position: static; top: auto; left: auto; }
 
   .map-img-wrapper {
-    position: absolute; inset: 0; overflow: hidden;
+    position: relative; width: 100%; height: calc(100vh - 60px); overflow: hidden;
   }
   .map-img-inner {
     position: absolute;
@@ -110,37 +127,115 @@
     display: block;
   }
   .map-overlay {
-    position: absolute; cursor: pointer;
+    position: absolute; pointer-events: none;
     transition: filter 0.2s, opacity 0.2s;
     mix-blend-mode: screen;
   }
   .map-overlay img { width: 100%; height: 100%; object-fit: contain; display: block; }
-  .map-overlay:hover { filter: brightness(1.15); }
 
-  /* ── SECTION SCREEN ── */
-  #section-screen { background: var(--white); display: flex; flex-direction: column; }
+  /* Click zones: each half of the map wrapper triggers one section. The two
+     zones together always cover the entire wrapper so the buttons fill the
+     screen — left/right split in landscape, top/bottom in portrait. */
+  .map-click-zone {
+    position: absolute;
+    cursor: pointer; z-index: 20; background: transparent;
+    transition: background 0.25s ease, box-shadow 0.25s ease;
+    display: flex; align-items: center; justify-content: center;
+    padding: 0 4%;
+  }
+  .map-click-zone .map-label {
+    position: static; transform: none;
+    max-width: 100%;
+  }
+  /* Landscape default: full height, split horizontally at 50%. */
+  .map-click-zone.left  { left: 0;   right: 50%; top: 0; bottom: 0; }
+  .map-click-zone.right { left: 50%; right: 0;   top: 0; bottom: 0; }
+  .map-click-zone.left:hover  { background: linear-gradient(to right, rgba(26,107,42,0.22), rgba(26,107,42,0.08)); box-shadow: inset -2px 0 0 rgba(26,107,42,0.55); }
+  .map-click-zone.right:hover { background: linear-gradient(to left,  rgba(26,107,42,0.22), rgba(26,107,42,0.08)); box-shadow: inset  2px 0 0 rgba(26,107,42,0.55); }
+  .map-click-zone.left.active  { background: linear-gradient(to right, rgba(26,107,42,0.32), rgba(26,107,42,0.14)); box-shadow: inset -3px 0 0 rgba(26,107,42,0.85); }
+  .map-click-zone.right.active { background: linear-gradient(to left,  rgba(26,107,42,0.32), rgba(26,107,42,0.14)); box-shadow: inset  3px 0 0 rgba(26,107,42,0.85); }
+  .map-click-zone.left:hover  ~ .map-img-inner #wh-overlay,
+  .map-click-zone.left.active ~ .map-img-inner #wh-overlay { filter: brightness(1.15); }
+  .map-click-zone.right:hover  ~ .map-img-inner #pp-overlay,
+  .map-click-zone.right.active ~ .map-img-inner #pp-overlay { filter: brightness(1.15); }
 
-  .half-map {
-    position: relative; height: 46vh; flex-shrink: 0; overflow: hidden;
+  /* Portrait: full width, split vertically at 50%. */
+  @media (orientation: portrait) {
+    .map-click-zone.left   { left: 0; right: 0; top: 0;   bottom: 50%; }
+    .map-click-zone.right  { left: 0; right: 0; top: 50%; bottom: 0;   }
+    .map-click-zone.left:hover   { background: linear-gradient(to bottom, rgba(26,107,42,0.22), rgba(26,107,42,0.08)); box-shadow: inset 0 -2px 0 rgba(26,107,42,0.55); }
+    .map-click-zone.right:hover  { background: linear-gradient(to top,    rgba(26,107,42,0.22), rgba(26,107,42,0.08)); box-shadow: inset 0  2px 0 rgba(26,107,42,0.55); }
+    .map-click-zone.left.active  { background: linear-gradient(to bottom, rgba(26,107,42,0.32), rgba(26,107,42,0.14)); box-shadow: inset 0 -3px 0 rgba(26,107,42,0.85); }
+    .map-click-zone.right.active { background: linear-gradient(to top,    rgba(26,107,42,0.32), rgba(26,107,42,0.14)); box-shadow: inset 0  3px 0 rgba(26,107,42,0.85); }
   }
-  .half-map-img {
-    position: absolute; inset: 0; width: 100%; height: 100%;
-    object-fit: cover; object-position: center;
-  }
-  .half-map-overlay {
-    position: absolute; pointer-events: none;
-    mix-blend-mode: multiply;
-  }
-  .half-map-overlay img { width: 100%; height: 100%; object-fit: contain; }
-  .half-map-fade {
-    position: absolute; bottom: 0; left: 0; right: 0; height: 75%;
-    background: linear-gradient(to bottom, transparent 0%, rgba(255,255,255,0.6) 40%, rgba(255,255,255,0.92) 65%, #ffffff 100%);
+  .map-label {
+    position: absolute;
     pointer-events: none;
+    text-align: center;
+    transform: translate(-50%, -50%);
+    font-family: var(--font-display);
+    font-size: clamp(20px, 2.5vw, 34px);
+    line-height: 1.1;
+    color: var(--black);
+    text-transform: uppercase;
+    max-width: 38%;
+    z-index: 5;
   }
+
+  /* Bottom-fade scroll-down hint on map */
+  .map-bottom-fade {
+    position: absolute; left: 0; right: 0; bottom: 0; height: 22vh;
+    pointer-events: none; z-index: 30; opacity: 0;
+    transition: opacity 0.5s ease;
+    background: linear-gradient(to bottom,
+      rgba(255,255,255,0) 0%,
+      rgba(255,255,255,0.55) 40%,
+      rgba(255,255,255,0.92) 70%,
+      #ffffff 100%);
+  }
+  .map-bottom-fade.visible { opacity: 1; }
+
+  /* When a section is selected, the panel is rendered right below the map
+     wrapper. Shrink the wrapper so the panel's top (with its sticky nameplate)
+     peeks through at the bottom of the viewport, blending into the fade. */
+  #map-screen:has(#map-section-panel.visible) .map-img-wrapper {
+    height: calc(100vh - 60px - 110px);
+  }
+
+  /* In-place section panel below the map */
+  #map-section-panel {
+    position: relative; background: var(--white);
+    display: none;
+  }
+  #map-section-panel.visible { display: block; min-height: 100vh; }
+
+  #panel-chrome {
+    position: sticky; top: 0; z-index: 200;
+    isolation: isolate;
+    background: #ffffff;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    padding: 12px 24px;
+    border-bottom: 1px solid #eee;
+    display: flex; align-items: center; gap: 14px;
+    min-height: 60px;
+  }
+  #panel-chrome .logo {
+    font-size: 28px;
+    margin-right: auto; /* anchors logo at left, era-nav stays centered via its own auto margins */
+  }
+  #panel-chrome .section-era-nav {
+    position: absolute; left: 50%; top: 50%;
+    transform: translate(-50%, -50%);
+    display: flex; gap: 6px;
+    pointer-events: all;
+  }
+  /* Hide era nav and view toggle until at least one section is selected. */
+  #panel-chrome:not(.has-selection) .section-era-nav,
+  #panel-chrome:not(.has-selection) .view-toggle { display: none; }
 
   /* Toggle */
   .view-toggle {
-    position: absolute; top: 20px; right: 20px; z-index: 100;
     background: none; border: none; cursor: pointer; padding: 6px;
   }
   .toggle-grid {
@@ -150,20 +245,13 @@
   .toggle-lines { display: flex; flex-direction: column; gap: 3px; width: 22px; }
   .toggle-lines .lbar { height: 2px; background: var(--black); }
 
-  /* Section title at base of half map */
-  .section-title-base {
-    position: absolute; bottom: 52px; left: 60px;
-    font-family: var(--font-display);
-    font-size: clamp(28px, 4vw, 54px);
-    color: var(--black); line-height: 1; z-index: 20;
-  }
   .name-dash {
     display: inline-block; width: 22px; height: 3px;
     background: var(--black); margin-right: 10px; vertical-align: middle;
   }
 
   /* ── LIST VIEW ── */
-  #list-view { flex: 1; overflow-y: auto; padding: 0 20px 40px 60px; display: none; }
+  #list-view { padding: 0 20px 40px 60px; display: none; }
   #list-view.visible { display: block; }
 
   .list-president {
@@ -183,14 +271,13 @@
   .list-meta { font-size: 10px; color: #888; margin-top: 5px; letter-spacing: 1px; text-transform: uppercase; }
 
   /* ── SINGLE VIEW ── */
-  #single-view { position:absolute; inset:0; overflow:hidden; display:none; z-index:20; }
-  #single-view.visible { display:block; }
+  #single-view { position: static; display: none; height: auto; }
+  #single-view.visible { display: block; }
 
-  .single-scroll { height: 100%; overflow-y: auto; overflow-x: hidden; scrollbar-width: none; }
-  .single-scroll::-webkit-scrollbar { display: none; }
+  .single-scroll { height: auto; overflow: visible; }
 
   .single-name-sticky {
-    position: sticky; top: 70px; z-index: 50; padding: 0 60px 0 60px;
+    position: sticky; top: 80px; z-index: 10; padding: 0 60px 0 60px;
     display: flex; align-items: center; justify-content: space-between;
     pointer-events: none;
   }
@@ -251,13 +338,41 @@
   .card-track-outer {
     position: relative;
     width: 100%;
+    overflow-x: auto;
+    overflow-y: visible;
+    scrollbar-width: none;
+  }
+  .card-track-outer::-webkit-scrollbar { display: none; }
+
+  /* Right-edge fade + chevron hints that more cards exist when the track
+     overflows (i.e. >3 cards, which only happens with both sections toggled). */
+  .card-panel:has(.story-card:nth-child(4))::after {
+    content: '›';
+    position: absolute; right: 0; top: 0; bottom: 0;
+    width: 100px; padding-right: 20px;
+    display: flex; align-items: center; justify-content: flex-end;
+    font-family: var(--font-display);
+    font-size: 42px;
+    color: var(--green);
+    background: linear-gradient(to right,
+      rgba(255,255,255,0) 0%,
+      rgba(240,240,238,0.7) 60%,
+      rgba(225,225,222,0.9) 100%);
+    pointer-events: none; z-index: 5;
   }
   .card-track-inner {
     display: flex; align-items: stretch;
     gap: 16px;
+    flex-wrap: nowrap;
+    /* `safe center` centers when cards fit, but falls back to flex-start when
+       they overflow so the leftmost card never gets clipped off-screen. */
+    justify-content: safe center;
   }
+  /* Cards stay sized as if 3 fit the panel; extras (when both sections toggled
+     on) overflow horizontally and the track scrolls. */
   .story-card {
-    flex: 1; min-width: 0;
+    flex: 0 0 calc((100% - 32px) / 3);
+    min-width: 0;
     min-height: clamp(200px, 32vw, 420px);
     background: rgba(255,255,255,0.60);
     display: flex; flex-direction: column;
@@ -266,10 +381,13 @@
     padding: 5% 3%;
     box-sizing: border-box;
   }
+  /* Headline base — fitStoryHeadlines() overrides font-size per card so each
+     headline grows to fill its available space. The clamp serves as a fallback
+     before JS measures (and on tiny edge cases). */
   .story-headline {
     font-family: 'FranklinGothicCondensed', 'FranklinGothic', sans-serif;
     font-size: clamp(18px, 3.5vw, 42px);
-    line-height: 1.08;
+    line-height: 1.05;
     color: var(--black);
     text-transform: uppercase;
     letter-spacing: 0.02em;
@@ -393,10 +511,9 @@
   }
   .nav-tick:hover .tick-label { opacity: 1; transform: translateX(0); }
 
-  /*  RIGHT RULER  */
+  /*  RIGHT RULER (removed from UI; kept hidden so existing JS calls are no-ops) */
   .scroll-ruler {
-    position: fixed; right: 6px; top: 50%; transform: translateY(-50%);
-    display: flex; flex-direction: column; gap: 2px; z-index: 100; pointer-events: none;
+    display: none !important;
   }
   .ruler-tick { width: 10px; height: 2px; background: var(--black); opacity: 0.1; transition: opacity 0.3s; }
   .ruler-tick.lit { opacity: 0.75; }
@@ -429,7 +546,7 @@
   }
   .data-era-btn:hover { border-color: var(--green); color: var(--green); }
 
-  /* Era filter buttons inside section-chrome (mirrors data-era-btn) */
+  /* Era filter buttons (mirrors data-era-btn) */
   .section-era-nav {
     position: absolute; top: 22px; left: 50%;
     transform: translateX(-50%);
@@ -630,23 +747,9 @@
     }
     .nav-tick:hover .tick-label { opacity: 1; transform: translateX(-50%) translateY(0); }
 
-    /* ── Half-map: natural scroll-away on mobile ── */
-    .half-map {
-      position: relative !important;
-      height: 42vw !important; max-height: 46vh;
-      z-index: 15; flex-shrink: 0;
-    }
-
-    /* ── Section title ── */
-    .section-title-base {
-      left: 14px; bottom: 36px;
-      font-size: clamp(18px, 6vw, 30px);
-    }
-
     /* ── List view ── */
     #list-view {
       padding: 0 0 60px 0;
-      overflow-y: auto;
     }
     .list-president {
       flex-direction: column-reverse;
@@ -665,18 +768,23 @@
     }
 
     /* ── Single view ── */
-    #single-view {
-      position: absolute; inset: 0; overflow: hidden;
-    }
-    .single-scroll {
-      height: 100%; overflow-y: auto; overflow-x: hidden; scrollbar-width: none;
-      padding-bottom: 110px;
-    }
-    .single-scroll::-webkit-scrollbar { display: none; }
+    #single-view { position: static; }
+    .single-scroll { height: auto; overflow: visible; padding-bottom: 110px; }
 
-    /* Name: sticky at very top, small bar */
+    /* Mobile: panel peeks through with a smaller exposed strip. */
+    #map-screen:has(#map-section-panel.visible) .map-img-wrapper {
+      height: calc(100vh - 48px - 80px);
+    }
+    #panel-chrome { padding: 10px 14px; min-height: 48px; gap: 8px; }
+    #panel-chrome .logo { font-size: 22px; }
+    #panel-chrome .section-era-nav { gap: 3px; }
+    /* Map fills the area below the (shorter) mobile chrome. */
+    .map-img-wrapper { height: calc(100vh - 48px); }
+
+    /* Name: sticks just below the panel-chrome bar (mobile chrome min-height
+       is 48px) so the president card never slides up under the bar. */
     .single-name-sticky {
-      position: sticky; top: 0; z-index: 50;
+      position: sticky; top: 48px; z-index: 50;
       padding: 7px 14px;
       background: rgba(255,255,255,0.96);
       backdrop-filter: blur(6px);
@@ -716,39 +824,28 @@
     /* Transition */
     .pres-transition { padding: 16px 14px; }
 
-    /* Hide chrome feather on mobile — map already anchors the view */
-    #section-chrome > div:first-child { display: none; }
-    /* Logo stays top-left, no background needed */
+    /* Logo background for mobile readability */
     .logo { background: rgba(255,255,255,0.85); padding: 4px 8px; border-radius: 2px; }
 
     /* Hide scroll ruler */
     .scroll-ruler { display: none !important; }
 
-    /* ── Section chrome on mobile: just the toggle, no logo overlap ── */
-    #section-chrome .logo { display: none; }
-    #section-chrome {
-      pointer-events: none;
-      background: none !important;
-    }
     button.view-toggle {
-      pointer-events: all;
-      background: rgba(255,255,255,0.9) !important;
+      background: rgba(255,255,255,0.9);
       padding: 8px;
       border-radius: 3px;
     }
 
-    /* Single name sticky: full width, hides under toggle ── */
+    /* Single name sticky: keep clear of toggle, anchored below the chrome
+       (z-index lower than #panel-chrome's 100 so the chrome stays on top). */
     .single-name-sticky {
-      position: sticky; top: 0; z-index: 250;
-      padding: 9px 60px 9px 14px; /* right padding keeps clear of toggle */
+      position: sticky; top: 48px; z-index: 90;
+      padding: 9px 60px 9px 14px;
     }
     .single-name-text-wrap {
       background: none; backdrop-filter: none; padding: 0;
       width: 100%;
     }
-
-    /* List view: flex:1 to fill below half-map */
-    #list-view { flex: 1; }
 
     /* Story headline bigger touch targets */
     .story-headline { font-size: clamp(15px, 5.5vw, 30px); }
@@ -761,7 +858,7 @@
 <div id="home" class="screen active">
   <div class="home-map-bg"></div>
   <div class="home-title">
-    <span class="line-green">To/Be/An</span>
+    <span class="line-tba"><span class="g">T</span>o<span class="slash">/</span><span class="g">B</span>e<span class="slash">/</span><span class="g">A</span>n</span>
     <span class="line-black">American</span>
   </div>
   <button type="button" class="home-enter" onclick="goToMap()">ENTER</button>
@@ -772,75 +869,71 @@
 
 <!-- ══ MAP ══ -->
 <div id="map-screen" class="screen">
-  <div class="logo" onclick="goHome()">
-    <span class="t">T</span><span class="slash">/</span><span class="b">B</span><span class="slash">/</span><span class="aa">AA</span>
-  </div>
-  <div class="map-img-wrapper">
-    <div class="map-img-inner" id="map-img-inner">
-      <img id="map-main-img" src="" alt="Map">
-      <div class="map-overlay" id="wh-overlay" onclick="goToSection('whitehouse')"
-           style="left:11.25%;top:26.48%;width:9.00%;height:52.40%;">
-        <img id="wh-img" src="" alt="White House">
-      </div>
-      <div class="map-overlay" id="pp-overlay" onclick="goToSection('peoplespark')"
-           style="left:40.31%;top:4.14%;width:54.24%;height:87.15%;">
-        <img id="pp-img" src="" alt="People's Park">
-      </div>
+  <!-- Persistent chrome bar: logo + era nav + DATA + view toggle. Always
+       visible across map and panel views. Era nav and view toggle are hidden
+       until at least one section is selected (controlled via .has-selection). -->
+  <div id="panel-chrome">
+    <div class="logo" onclick="goHome()">
+      <span class="t">T</span><span class="slash">/</span><span class="b">B</span><span class="slash">/</span><span class="a">A</span><span class="aa">American</span>
     </div>
-  </div>
-</div>
-
-<!-- ══ SECTION (List + Single) ══ -->
-<div id="section-screen" class="screen">
-
-  <!-- Static half-map: only shown in list view -->
-  <div class="half-map" id="static-half-map">
-    <img class="half-map-img" id="half-map-img" src="" alt="Map">
-    <div class="half-map-overlay" id="half-map-overlay" style="display:none;">
-      <img id="half-overlay-img" src="" alt="">
-    </div>
-    <div class="half-map-fade"></div>
-
-  </div>
-
-  <!-- List view flows below static half-map -->
-  <div id="list-view">
-    <div id="list-content"></div>
-  </div>
-
-  <!-- Single view covers full screen; half-map is injected at top of scroll by JS -->
-  <div id="single-view">
-    <div class="single-scroll" id="single-scroll">
-      <div id="single-content"></div>
-    </div>
-  </div>
-
-  <!-- Fixed chrome: logo + toggle always visible when on section screen -->
-  <div id="section-chrome" style="display:none; position:fixed; top:0; left:0; right:0; z-index:300; pointer-events:none;">
-    <!-- Feather: solid white behind logo only, quick fade -->
-    <div style="position:absolute; top:0; left:0; right:0; height:70px;
-                background:linear-gradient(to bottom, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 40%, rgba(255,255,255,0) 100%);
-                pointer-events:none; z-index:0;"></div>
-    <div class="logo" onclick="goToMap()" style="pointer-events:all; position:relative; z-index:1;">
-      <span class="t">T</span><span class="slash">/</span><span class="b">B</span><span class="slash">/</span><span class="aa">AA</span>
-    </div>
-    <button class="data-btn" id="data-nav-btn" onclick="goToData()" style="position:absolute;top:22px;right:80px;z-index:1;">DATA</button>
-    <button class="view-toggle" id="view-toggle" onclick="toggleView()" style="position:absolute;top:20px;right:20px;pointer-events:all;z-index:1;"></button>
     <div class="section-era-nav" id="section-era-nav">
       <button type="button" class="section-era-btn active" data-era="all"       onclick="setEraFilter('all')">ALL</button>
       <button type="button" class="section-era-btn"        data-era="beginning" onclick="setEraFilter('beginning')">BEGINNING</button>
       <button type="button" class="section-era-btn"        data-era="middle"    onclick="setEraFilter('middle')">MIDDLE</button>
       <button type="button" class="section-era-btn"        data-era="end"       onclick="setEraFilter('end')">END</button>
     </div>
+    <button class="data-btn" id="data-nav-btn" onclick="goToData()">DATA</button>
+    <button class="view-toggle" id="view-toggle" onclick="toggleView()"></button>
+  </div>
+  <div class="map-img-wrapper">
+    <!-- Click zones: left half → whitehouse, right half → peoplespark. Placed
+         before map-img-inner so the hover-forward CSS sibling selectors work.
+         Labels live inside the zones so they center on the click area. -->
+    <div class="map-click-zone left"  onclick="toggleSection('whitehouse')"  aria-label="Press Coverage">
+      <div class="map-label">Press Coverage — How newspapers have covered Americans, 1789–today</div>
+    </div>
+    <div class="map-click-zone right" onclick="toggleSection('peoplespark')" aria-label="Presidential Discourse">
+      <div class="map-label">Presidential Discourse — How presidents have spoken about Americans, 1789–today</div>
+    </div>
+    <div class="map-img-inner" id="map-img-inner">
+      <img id="map-main-img" src="" alt="Map">
+      <div class="map-overlay" id="wh-overlay"
+           style="left:11.25%;top:26.48%;width:9.00%;height:52.40%;">
+        <img id="wh-img" src="" alt="White House">
+      </div>
+      <div class="map-overlay" id="pp-overlay"
+           style="left:40.31%;top:4.14%;width:54.24%;height:87.15%;">
+        <img id="pp-img" src="" alt="People's Park">
+      </div>
+    </div>
+    <!-- Bottom feather: visual transition from the map into the panel
+         peeking through underneath. The real panel nameplate sits just
+         below this gradient (the wrapper shrinks when a section is
+         selected so the panel's first content is visible). -->
+    <div class="map-bottom-fade" id="map-bottom-fade"></div>
   </div>
 
+  <!-- In-place section panel: rendered when a map button is clicked -->
+  <div id="map-section-panel">
+    <!-- List view -->
+    <div id="list-view">
+      <div id="list-content"></div>
+    </div>
+
+    <!-- Single view -->
+    <div id="single-view">
+      <div class="single-scroll" id="single-scroll">
+        <div id="single-content"></div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <!-- ══ DATA SCREEN ══ -->
 <div id="data-screen" class="screen">
   <div class="data-header">
     <div class="logo" onclick="goToMap()" style="pointer-events:all;">
-      <span class="t">T</span><span class="slash">/</span><span class="b">B</span><span class="slash">/</span><span class="aa">AA</span>
+      <span class="t">T</span><span class="slash">/</span><span class="b">B</span><span class="slash">/</span><span class="a">A</span><span class="aa">American</span>
     </div>
     <div class="data-section-title" id="data-section-title"></div>
     <div class="data-era-nav">
@@ -857,7 +950,7 @@
 <div id="detail-screen" class="screen">
   <div class="detail-header">
     <div class="logo" onclick="goToMap()" style="pointer-events:all;">
-      <span class="t">T</span><span class="slash">/</span><span class="b">B</span><span class="slash">/</span><span class="aa">AA</span>
+      <span class="t">T</span><span class="slash">/</span><span class="b">B</span><span class="slash">/</span><span class="a">A</span><span class="aa">American</span>
     </div>
     <div style="flex:1;"></div>
     <button class="detail-back-btn" onclick="goBackFromDetail()">BACK</button>
@@ -1671,7 +1764,11 @@ const PRESIDENTS = {
 };
 
 // ── STATE ──
-let currentSection = 'whitehouse';
+// selectedSections holds which map halves are toggled on. The panel renders a
+// merged-by-name list when both are selected (combining each president's
+// stories from both sections), or a single section's list when only one is on.
+let selectedSections = [];
+let currentSection = 'whitehouse'; // first selected section, kept as fallback
 let currentView = 'single';
 let currentPresidentIndex = 0;
 let currentEraFilter = 'all'; // 'all' | 'beginning' | 'middle' | 'end'
@@ -1703,6 +1800,32 @@ function getActivePresidents(sectionId) {
   return all.filter(p => getActiveStories(p).length > 0);
 }
 
+// Returns the presidents to render based on the current toggle selection.
+// One section: that section's list. Both sections: merged by president name,
+// stories combined (each story tagged with _section so detail nav can resolve).
+function getCurrentPresidents() {
+  if (selectedSections.length === 0) return [];
+  if (selectedSections.length === 1) return getActivePresidents(selectedSections[0]);
+  const merged = {};
+  const order = [];
+  selectedSections.forEach(sectionId => {
+    (PRESIDENTS[sectionId] || []).forEach(p => {
+      if (!merged[p.name]) {
+        merged[p.name] = { id: p.id, name: p.name, termYears: p.termYears, stories: [] };
+        order.push(p.name);
+      }
+      p.stories.forEach(s => merged[p.name].stories.push(
+        Object.assign({}, s, { _section: sectionId })
+      ));
+    });
+  });
+  let presidents = order.map(n => merged[n]);
+  if (currentEraFilter && currentEraFilter !== 'all') {
+    presidents = presidents.filter(p => getActiveStories(p).length > 0);
+  }
+  return presidents;
+}
+
 function setEraFilter(era) {
   currentEraFilter = era;
   // Update button highlighting
@@ -1711,11 +1834,11 @@ function setEraFilter(era) {
   });
   // Reset position and re-render the current view
   currentPresidentIndex = 0;
-  buildNavBar(currentSection);
+  buildNavBar();
   if (currentView === 'list') {
-    renderListView(currentSection);
+    renderListView();
   } else {
-    renderSingleView(currentSection, 0);
+    renderSingleView(0);
   }
 }
 
@@ -1725,59 +1848,180 @@ function showScreen(id) {
   document.getElementById(id).classList.add('active');
 }
 
-function goHome() {
+// ── ROUTING ──
+// Static routes: pathname → handler(skipPush). skipPush=true when called by the router.
+var ROUTES = {
+  '/':            function(skip) { goHome(skip); },
+  '/map':         function(skip) { goToMap(skip); },
+  '/whitehouse':  function(skip) { setSelection(['whitehouse'], skip); },
+  '/peoplespark': function(skip) { setSelection(['peoplespark'], skip); },
+  '/all':         function(skip) { setSelection(['whitehouse','peoplespark'], skip); },
+  '/data':        function(skip) { goToData(skip); },
+};
+
+// Compute the URL path that corresponds to a given selection.
+function pathForSelection(sel) {
+  if (!sel || sel.length === 0) return '/map';
+  if (sel.length === 2) return '/all';
+  return '/' + sel[0];
+}
+
+function pushPath(path) {
+  if (window.location.pathname === path) return;
+  try {
+    window.history.pushState({}, '', path);
+  } catch (e) {
+    // file:// origins (and some sandboxes) reject absolute pushState — fall back to no-op.
+  }
+}
+
+// Find a story by presidentId + type, optionally within a section.
+// Returns { story, pres, section } or null.
+function findStory(section, presId, type) {
+  var sections = section === 'data' ? Object.keys(PRESIDENTS) : [section];
+  for (var i = 0; i < sections.length; i++) {
+    var sec = sections[i];
+    var list = PRESIDENTS[sec] || [];
+    for (var j = 0; j < list.length; j++) {
+      if (list[j].id !== presId) continue;
+      var stories = list[j].stories || [];
+      for (var k = 0; k < stories.length; k++) {
+        if (stories[k].type === type) {
+          return { story: stories[k], pres: list[j], section: sec };
+        }
+      }
+    }
+  }
+  return null;
+}
+
+function routeFromUrl() {
+  var path = window.location.pathname.replace(/\/$/, '') || '/';
+  if (ROUTES[path]) { ROUTES[path](true); return; }
+
+  // Dynamic: /{section}/{presId}/{type} or /data/{presId}/{type}
+  var parts = path.split('/').filter(Boolean);
+  if (parts.length === 3) {
+    var section = parts[0], presId = parts[1], type = parts[2];
+    if ((section === 'whitehouse' || section === 'peoplespark' || section === 'data')
+        && ['positive','negative','neutral','sotu'].indexOf(type) !== -1) {
+      var hit = findStory(section, presId, type);
+      if (hit) {
+        var returnPath = section === 'data' ? '/data' : '/' + section;
+        showDetail(hit.story, hit.pres.name, hit.pres.termYears,
+                   { section: hit.section, presId: presId, returnPath: returnPath, urlSection: section, skipPush: true });
+        return;
+      }
+    }
+  }
+  // Unknown path → home.
+  ROUTES['/'](true);
+}
+
+window.addEventListener('popstate', routeFromUrl);
+
+function goHome(skipPush) {
+  if (!skipPush) pushPath('/');
   showScreen('home');
   document.getElementById('nav-bar').style.display = 'none';
   document.getElementById('scroll-ruler').style.display = 'none';
-  document.getElementById('section-chrome').style.display = 'none';
+  resetMapPanel();
 }
 
-function goToMap() {
+function goToMap(skipPush) {
+  if (!skipPush) pushPath('/map');
   showScreen('map-screen');
   document.getElementById('nav-bar').style.display = 'none';
   document.getElementById('scroll-ruler').style.display = 'none';
-  document.getElementById('section-chrome').style.display = 'none';
+  resetMapPanel();
+  document.getElementById('map-screen').scrollTop = 0;
   setTimeout(fitMapInner, 50);
 }
 
-function goToSection(sectionId) {
-  currentSection = sectionId;
+// Hide the in-place section panel and the bottom-fade hint, returning the
+// map-screen to its bare-map state and clearing the toggle selection.
+function resetMapPanel() {
+  const panel = document.getElementById('map-section-panel');
+  const fade  = document.getElementById('map-bottom-fade');
+  if (panel) panel.classList.remove('visible');
+  if (fade)  fade.classList.remove('visible');
+  selectedSections = [];
+  document.querySelectorAll('.map-click-zone').forEach(z => z.classList.remove('active'));
+}
+
+// Toggle a section in/out of the selection (called by map button clicks).
+function toggleSection(sectionId) {
+  const idx = selectedSections.indexOf(sectionId);
+  const next = selectedSections.slice();
+  if (idx >= 0) next.splice(idx, 1);
+  else          next.push(sectionId);
+  setSelection(next);
+}
+
+// Set the selection explicitly (called by routes and toggleSection).
+function setSelection(sections, skipPush) {
+  // Preserve original section order [whitehouse, peoplespark] for stable URLs/UI.
+  const SECTION_ORDER = ['whitehouse','peoplespark'];
+  selectedSections = SECTION_ORDER.filter(s => sections.indexOf(s) !== -1);
+  currentSection = selectedSections[0] || 'whitehouse';
+
+  // Update click-zone active class, chrome state, and URL.
+  document.querySelector('.map-click-zone.left' ).classList.toggle('active', selectedSections.indexOf('whitehouse')  !== -1);
+  document.querySelector('.map-click-zone.right').classList.toggle('active', selectedSections.indexOf('peoplespark') !== -1);
+  document.getElementById('panel-chrome').classList.toggle('has-selection', selectedSections.length > 0);
+  if (!skipPush) pushPath(pathForSelection(selectedSections));
+
+  showScreen('map-screen');
+  setTimeout(fitMapInner, 50);
+
+  if (selectedSections.length === 0) {
+    // Nothing selected: hide panel and scroll back up.
+    resetMapPanel();
+    document.getElementById('nav-bar').style.display = 'none';
+    document.getElementById('scroll-ruler').style.display = 'none';
+    if (!skipPush) {
+      document.getElementById('map-screen').scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    return;
+  }
+
+  // Reset era filter and position when selection changes.
   currentPresidentIndex = 0;
-  // Reset era filter when entering a section
   currentEraFilter = 'all';
   document.querySelectorAll('#section-era-nav .section-era-btn').forEach(b => {
     b.classList.toggle('active', b.dataset.era === 'all');
   });
 
-  // Set half-map image
-  document.getElementById('static-half-map').style.display = 'block';
-  const halfMapImg = document.getElementById('half-map-img');
-  if (sectionId === 'whitehouse') {
-    halfMapImg.src = ASSET.whHalf;
-    halfMapImg.style.objectPosition = 'center 30%';
-  } else {
-    halfMapImg.src = ASSET.ppHalf;
-    halfMapImg.style.objectPosition = 'center top';
-  }
+  // Show the bottom-fade gradient as a visual transition into the panel
+  // peeking through underneath.
+  document.getElementById('map-bottom-fade').classList.add('visible');
 
-  const activeFirst = getActivePresidents(sectionId)[0];
-  const firstName = activeFirst ? activeFirst.name : '';
-  const tn1 = document.getElementById('section-title-name'); if (tn1) tn1.textContent = firstName;
-
-  buildNavBar(sectionId);
+  buildNavBar();
   buildScrollRuler();
 
   if (currentView === 'list') {
-    renderListView(sectionId);
+    renderListView();
   } else {
-    renderSingleView(sectionId, 0);
+    renderSingleView(0);
   }
 
   updateToggleIcon();
-  showScreen('section-screen');
   document.getElementById('nav-bar').style.display = 'flex';
   document.getElementById('scroll-ruler').style.display = 'flex';
-  document.getElementById('section-chrome').style.display = 'block';
+  document.getElementById('map-section-panel').classList.add('visible');
+
+  // On direct URL load, jump to the panel so the user lands on the data they
+  // navigated to. On a click, leave scroll alone — the panel peeks through at
+  // the bottom of the map and the user scrolls to it themselves.
+  if (skipPush) {
+    setTimeout(() => {
+      const ms = document.getElementById('map-screen');
+      const panel = document.getElementById('map-section-panel');
+      const chrome = document.getElementById('panel-chrome');
+      const target = panel.offsetTop - (chrome ? chrome.offsetHeight : 0);
+      ms.scrollTo({ top: Math.max(0, target), behavior: 'auto' });
+    }, 60);
+  }
 }
 
 // ── TOGGLE ──
@@ -1785,9 +2029,9 @@ function toggleView() {
   currentView = currentView === 'single' ? 'list' : 'single';
   updateToggleIcon();
   if (currentView === 'list') {
-    renderListView(currentSection);
+    renderListView();
   } else {
-    renderSingleView(currentSection, currentPresidentIndex);
+    renderSingleView(currentPresidentIndex);
   }
 }
 
@@ -1803,11 +2047,10 @@ function updateToggleIcon() {
 }
 
 // ── LIST VIEW ──
-function renderListView(sectionId) {
-  document.getElementById('static-half-map').style.display = 'block';
+function renderListView() {
   document.getElementById('list-view').classList.add('visible');
   document.getElementById('single-view').classList.remove('visible');
-  const presidents = getActivePresidents(sectionId);
+  const presidents = getCurrentPresidents();
   const container = document.getElementById('list-content');
   container.innerHTML = '';
   presidents.forEach((p, i) => {
@@ -1824,7 +2067,7 @@ function renderListView(sectionId) {
     el.onclick = () => {
       currentView = 'single';
       currentPresidentIndex = i;
-      renderSingleView(sectionId, i);
+      renderSingleView(i);
       updateToggleIcon();
     };
     container.appendChild(el);
@@ -1832,20 +2075,14 @@ function renderListView(sectionId) {
 }
 
 // ── SINGLE VIEW ──
-function renderSingleView(sectionId, presidentIndex) {
-  document.getElementById('static-half-map').style.display = 'none';
+function renderSingleView(presidentIndex) {
   document.getElementById('single-view').classList.add('visible');
   document.getElementById('list-view').classList.remove('visible');
   currentPresidentIndex = presidentIndex;
 
-  const presidents = getActivePresidents(sectionId);
+  const presidents = getCurrentPresidents();
   const content = document.getElementById('single-content');
-  const mapSrc = document.getElementById('half-map-img').src;
-  const mapPos = document.getElementById('half-map-img').style.objectPosition || 'center';
-  content.innerHTML = '<div class="half-map" style="position:relative;height:46vh;flex-shrink:0;overflow:hidden;pointer-events:none;">'
-    + '<img class="half-map-img" src="' + mapSrc + '" alt="Map" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:' + mapPos + ';" >'
-    + '<div class="half-map-fade"></div>'
-    + '</div>';
+  content.innerHTML = '';
 
   presidents.forEach((p, i) => {
     const section = document.createElement('div');
@@ -1855,8 +2092,7 @@ function renderSingleView(sectionId, presidentIndex) {
     content.appendChild(section);
   });
 
-  const scroll = document.getElementById('single-scroll');
-  scroll.scrollTop = 0;
+  const ms = document.getElementById('map-screen');
   if (presidentIndex > 0) {
     setTimeout(() => {
       const t = document.getElementById('pres-' + presidentIndex);
@@ -1864,14 +2100,18 @@ function renderSingleView(sectionId, presidentIndex) {
     }, 80);
   }
 
-  scroll.onscroll = () => onSingleScroll(scroll, presidents);
-  setTimeout(() => onSingleScroll(scroll, presidents), 150);
-  setTimeout(() => onSingleScroll(scroll, presidents), 600);
+  ms.onscroll = () => onSingleScroll(ms, presidents);
+  setTimeout(() => onSingleScroll(ms, presidents), 150);
+  setTimeout(() => onSingleScroll(ms, presidents), 600);
 
 
   updateNavHighlight(presidentIndex);
-  updateRuler(scroll);
+  updateRuler(ms);
   setTimeout(alignCardPanels, 50);
+  // Fit each headline to its card after layout settles, and again once webfonts
+  // (which change text metrics) have likely loaded.
+  setTimeout(fitStoryHeadlines, 80);
+  setTimeout(fitStoryHeadlines, 600);
 }
 
 function buildPresidentHTML(p, i, allPresidents) {
@@ -1922,7 +2162,7 @@ function buildPresidentHTML(p, i, allPresidents) {
 }
 
 function shiftStories(presIdx, dir) {
-  const p      = getActivePresidents(currentSection)[presIdx];
+  const p      = getCurrentPresidents()[presIdx];
   const stories = getActiveStories(p);
   const strip  = document.getElementById('strip-' + presIdx);
   const indic  = document.getElementById('ind-' + presIdx);
@@ -1969,10 +2209,10 @@ function onSingleScroll(scrollEl, presidents) {
 }
 
 // ── NAV BAR ──
-function buildNavBar(sectionId) {
+function buildNavBar() {
   const nav = document.getElementById('nav-bar');
   nav.innerHTML = '';
-  getActivePresidents(sectionId).forEach((p, i) => {
+  getCurrentPresidents().forEach((p, i) => {
     const tick = document.createElement('div');
     tick.className = 'nav-tick' + (i === 0 ? ' active' : '');
     tick.dataset.pi = i;
@@ -1983,7 +2223,7 @@ function buildNavBar(sectionId) {
       } else {
         currentView = 'single';
         currentPresidentIndex = i;
-        renderSingleView(currentSection, i);
+        renderSingleView(i);
         updateToggleIcon();
       }
     };
@@ -2011,24 +2251,73 @@ function updateRuler(scrollEl) {
 }
 
 // ── Align card panels: card midpoint = portrait midpoint ──
+// Also caps each card's max-height to the portrait's height so cards never
+// render taller than the portrait next to them (skipped on mobile, where the
+// layout stacks vertically).
 function alignCardPanels() {
+  const isMobile = window.innerWidth <= 768;
   document.querySelectorAll('.president-section').forEach(section => {
     const stage = section.querySelector('.pres-stage');
     const panel = section.querySelector('.card-panel');
     if (!stage || !panel) return;
-    const stageStickyTop = parseInt(getComputedStyle(stage).top) || 140;
     const stageH = stage.offsetHeight;
+    section.querySelectorAll('.story-card').forEach(c => {
+      c.style.maxHeight = isMobile ? '' : (stageH + 'px');
+    });
+    const stageStickyTop = parseInt(getComputedStyle(stage).top) || 140;
     const panelH = panel.offsetHeight;
     const panelMarginTop = parseInt(getComputedStyle(panel).marginTop) || 0;
     const portraitCenter = stageStickyTop + stageH / 2;
     const CARD_OFFSET = 120; // raise cards this many px above portrait center
     panel.style.top = Math.max(10, portraitCenter - panelH / 2 - panelMarginTop - CARD_OFFSET) + 'px';
   });
+  // Re-fit headlines whenever card heights might have changed.
+  fitStoryHeadlines();
 }
 window.addEventListener('resize', alignCardPanels);
 
+// ── Headline auto-fit: scale each story-headline to fill its card ──
+// Binary-searches the largest font-size at which the headline's content fits
+// within the card minus its padding and the meta-bottom block.
+function fitCardHeadline(card) {
+  const headline = card.querySelector('.story-headline');
+  if (!headline) return;
+  const meta = card.querySelector('.story-meta-bottom');
+  const cs = getComputedStyle(card);
+  const padTop    = parseFloat(cs.paddingTop)    || 0;
+  const padBottom = parseFloat(cs.paddingBottom) || 0;
+  const padLeft   = parseFloat(cs.paddingLeft)   || 0;
+  const padRight  = parseFloat(cs.paddingRight)  || 0;
+  const metaH = meta ? meta.offsetHeight : 0;
+  const availH = card.clientHeight - padTop - padBottom - metaH - 6;
+  const availW = card.clientWidth  - padLeft - padRight;
+  if (availH <= 0 || availW <= 0) return;
+  let lo = 12, hi = 80;
+  // Probe upper bound first — if it already fits, no need to search.
+  headline.style.fontSize = hi + 'px';
+  if (headline.scrollHeight <= availH && headline.scrollWidth <= availW) {
+    headline.style.fontSize = hi + 'px';
+    return;
+  }
+  while (hi - lo > 1) {
+    const mid = (lo + hi) >> 1;
+    headline.style.fontSize = mid + 'px';
+    if (headline.scrollHeight <= availH && headline.scrollWidth <= availW) {
+      lo = mid;
+    } else {
+      hi = mid;
+    }
+  }
+  headline.style.fontSize = lo + 'px';
+}
+function fitStoryHeadlines() {
+  document.querySelectorAll('#single-content .story-card').forEach(fitCardHeadline);
+}
+window.addEventListener('resize', fitStoryHeadlines);
+
 // ── DATA VIEW ──
-function goToData() {
+function goToData(skipPush) {
+  if (!skipPush) pushPath('/data');
   document.getElementById('data-section-title').textContent = 'ALL DATA';
 
   // Merge both sections by president — combine stories under each president
@@ -2038,7 +2327,9 @@ function goToData() {
       if (!merged[p.name]) {
         merged[p.name] = { name: p.name, termYears: p.termYears, stories: [] };
       }
-      p.stories.forEach(s => merged[p.name].stories.push(s));
+      p.stories.forEach(s => merged[p.name].stories.push(
+        Object.assign({}, s, { _presId: p.id, _section: sectionId })
+      ));
     });
   });
 
@@ -2079,7 +2370,11 @@ function goToData() {
       const card = document.createElement('div');
       card.className = 'story-card type-' + s.type;
       card.style.cursor = 'pointer';
-      card.onclick = (function(story, name, term) { return function() { showDetail(story, name, term); }; })(s, p.name, p.termYears);
+      card.onclick = (function(story, name, term, presId, section) {
+        return function() {
+          showDetail(story, name, term, { presId: presId, section: section, urlSection: 'data', returnPath: '/data' });
+        };
+      })(s, p.name, p.termYears, s._presId, s._section);
       card.innerHTML =
         '<div class="story-headline">' + s.headline + '</div>' +
         (s.body ? '<div class="story-body" style="display:block;font-size:clamp(10px,1.2vw,14px);color:#555;line-height:1.5;margin-top:8px;">' + s.body + '</div>' : '') +
@@ -2096,10 +2391,9 @@ function goToData() {
     container.appendChild(group);
   });
 
-  // Hide section chrome, nav, ruler
+  // Hide nav and ruler — chrome lives inside map-screen and is no longer the active screen.
   document.getElementById('nav-bar').style.display = 'none';
   document.getElementById('scroll-ruler').style.display = 'none';
-  document.getElementById('section-chrome').style.display = 'none';
 
   showScreen('data-screen');
 }
@@ -2114,21 +2408,46 @@ function scrollToEra(era) {
 }
 
 function goBackFromData() {
-  goToSection(currentSection);
+  setSelection(selectedSections.length ? selectedSections : ['whitehouse']);
 }
 
 // ── DETAIL VIEW ──
 let detailReturnSection = null;
+let detailReturnPath = null;
+let detailReturnSelection = null;
 
 function showDetailByIndex(presIdx, storyIdx) {
-  const presidents = getActivePresidents(currentSection);
+  const presidents = getCurrentPresidents();
   const p = presidents[presIdx];
   const s = p.stories[storyIdx];
-  showDetail(s, p.name, p.termYears);
+  // Resolve the originating section: in merged view each story has _section,
+  // otherwise it's the single selected section.
+  const storySection = s._section || selectedSections[0] || currentSection;
+  const returnPath = pathForSelection(selectedSections);
+  showDetail(s, p.name, p.termYears, {
+    presId: p.id, section: storySection,
+    urlSection: storySection, returnPath: returnPath
+  });
 }
 
-function showDetail(story, presName, presTermYears) {
-  detailReturnSection = currentSection;
+function showDetail(story, presName, presTermYears, ctx) {
+  ctx = ctx || {};
+  if (!ctx.skipPush && ctx.presId && ctx.urlSection) {
+    pushPath('/' + ctx.urlSection + '/' + ctx.presId + '/' + story.type);
+  }
+  detailReturnSection = ctx.section || currentSection;
+  detailReturnPath = ctx.returnPath || ('/' + detailReturnSection);
+  // Capture the selection at the moment we leave the panel so BACK restores it.
+  // For URL-loaded detail pages, derive selection from the return path.
+  if (selectedSections.length > 0) {
+    detailReturnSelection = selectedSections.slice();
+  } else if (detailReturnPath === '/all') {
+    detailReturnSelection = ['whitehouse','peoplespark'];
+  } else if (detailReturnPath === '/whitehouse' || detailReturnPath === '/peoplespark') {
+    detailReturnSelection = [detailReturnPath.slice(1)];
+  } else {
+    detailReturnSelection = null;
+  }
   const container = document.getElementById('detail-scroll');
   const v = story.type || 'neutral';
   const vClass = 'val-' + v;
@@ -2182,12 +2501,12 @@ function showDetail(story, presName, presTermYears) {
   container.scrollTop = 0;
   document.getElementById('nav-bar').style.display = 'none';
   document.getElementById('scroll-ruler').style.display = 'none';
-  document.getElementById('section-chrome').style.display = 'none';
   showScreen('detail-screen');
 }
 
 function goBackFromDetail() {
-  if (detailReturnSection) goToSection(detailReturnSection);
+  if (detailReturnPath === '/data') goToData();
+  else if (detailReturnSelection && detailReturnSelection.length) setSelection(detailReturnSelection);
   else goToMap();
 }
 
@@ -2463,13 +2782,24 @@ function fitMapInner() {
   var inner = document.getElementById('map-img-inner');
   if (!wrapper || !inner) return;
   var wW = wrapper.clientWidth, wH = wrapper.clientHeight;
-  var imgRatio = 6401 / 3603; // natural map aspect ratio
+  var imgRatio = 6401 / 3603; // natural map aspect ratio (landscape)
   var containerRatio = wW / wH;
+  var portrait = wH > wW;
   var w, h;
-  if (containerRatio > imgRatio) {
+  if (portrait) {
+    // Rotate the map +90deg (clockwise) so its long axis runs vertically and
+    // White House (originally on the left) ends up at the top, matching the
+    // top click zone. Size the inner div so its rotated bounding box (h × w)
+    // fits inside the viewport.
+    h = Math.min(wW, wH / imgRatio);
+    w = h * imgRatio;
+    inner.style.transform = 'translate(-50%, -50%) rotate(90deg)';
+  } else if (containerRatio > imgRatio) {
     w = wW; h = wW / imgRatio;
+    inner.style.transform = 'translate(-50%, -50%)';
   } else {
     h = wH; w = wH * imgRatio;
+    inner.style.transform = 'translate(-50%, -50%)';
   }
   inner.style.width = w + 'px';
   inner.style.height = h + 'px';
@@ -2486,6 +2816,7 @@ window.addEventListener('DOMContentLoaded', () => {
   document.getElementById('wh-img').src          = ASSET.whitehouse;
   document.getElementById('pp-img').src          = ASSET.peoplespark;
   fitMapInner();
+  routeFromUrl();
 });
 
 </script>
