@@ -17,25 +17,25 @@
 </script>
 <style>
   * { hyphens: none !important; -webkit-hyphens: none !important; }
+  /* Libre Franklin — all 9 upright weights, italics intentionally omitted. */
+  @font-face { font-family: 'Libre Franklin'; src: url('tbaa_assets/fonts/LibreFranklin-Thin.ttf')        format('truetype'); font-weight: 100; font-style: normal; font-display: swap; }
+  @font-face { font-family: 'Libre Franklin'; src: url('tbaa_assets/fonts/LibreFranklin-ExtraLight.ttf')  format('truetype'); font-weight: 200; font-style: normal; font-display: swap; }
+  @font-face { font-family: 'Libre Franklin'; src: url('tbaa_assets/fonts/LibreFranklin-Light.ttf')       format('truetype'); font-weight: 300; font-style: normal; font-display: swap; }
+  @font-face { font-family: 'Libre Franklin'; src: url('tbaa_assets/fonts/LibreFranklin-Regular.ttf')     format('truetype'); font-weight: 400; font-style: normal; font-display: swap; }
+  @font-face { font-family: 'Libre Franklin'; src: url('tbaa_assets/fonts/LibreFranklin-Medium.ttf')      format('truetype'); font-weight: 500; font-style: normal; font-display: swap; }
+  @font-face { font-family: 'Libre Franklin'; src: url('tbaa_assets/fonts/LibreFranklin-SemiBold.ttf')    format('truetype'); font-weight: 600; font-style: normal; font-display: swap; }
+  @font-face { font-family: 'Libre Franklin'; src: url('tbaa_assets/fonts/LibreFranklin-Bold.ttf')        format('truetype'); font-weight: 700; font-style: normal; font-display: swap; }
+  @font-face { font-family: 'Libre Franklin'; src: url('tbaa_assets/fonts/LibreFranklin-ExtraBold.ttf')   format('truetype'); font-weight: 800; font-style: normal; font-display: swap; }
+  @font-face { font-family: 'Libre Franklin'; src: url('tbaa_assets/fonts/LibreFranklin-Black.ttf')       format('truetype'); font-weight: 900; font-style: normal; font-display: swap; }
+
+  /* Display alias: any element using var(--font-display) automatically renders
+     in Libre Franklin Black, regardless of the font-weight property. The
+     `font-weight: 100 900` range matches every requested weight to the Black
+     file so we don't need to touch existing rules. */
   @font-face {
-    font-family: 'FranklinGothic';
-    src: url('tbaa_assets/fonts/FranklinGothic.ttf') format('truetype');
-    font-weight: 400; font-style: normal;
-  }
-  @font-face {
-    font-family: 'FranklinGothic';
-    src: url('tbaa_assets/fonts/FranklinGothic_2.ttf') format('truetype');
-    font-weight: 400; font-style: italic;
-  }
-  @font-face {
-    font-family: 'FranklinGothicCondensed';
-    src: url('tbaa_assets/fonts/FranklinGothicCondensed.ttf') format('truetype');
-    font-weight: 400; font-style: normal;
-  }
-  @font-face {
-    font-family: 'FranklinGothicHeavy';
-    src: url('tbaa_assets/fonts/FranklinGothicHeavy.ttf') format('truetype');
-    font-weight: 400; font-style: normal;
+    font-family: 'Libre Franklin Display';
+    src: url('tbaa_assets/fonts/LibreFranklin-Black.ttf') format('truetype');
+    font-weight: 100 900; font-style: normal; font-display: swap;
   }
 
   :root {
@@ -43,8 +43,8 @@
     --black: #0a0a0a;
     --white: #ffffff;
     --nav-width: 36px;
-    --font-display: 'FranklinGothicHeavy', 'FranklinGothic', sans-serif;
-    --font-body: 'FranklinGothic', sans-serif;
+    --font-display: 'Libre Franklin Display', 'Libre Franklin', sans-serif;
+    --font-body: 'Libre Franklin', sans-serif;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -105,8 +105,13 @@
   .home-desc {
     position: absolute; bottom: 56px; right: 56px;
     max-width: 40%; font-size: clamp(14px, 2vh, 22px); line-height: 1.75;
-    color: #555; text-align: center; z-index: 20;
+    color: #555; text-align: right; z-index: 20;
     animation: fadeUp 0.7s 0.3s ease both;
+  }
+  /* Mobile/portrait: re-center the bottom paragraph and tighten line spacing
+     so it doesn't crowd the ENTER button above it. */
+  @media (max-width: 768px), (orientation: portrait) {
+    .home-desc { text-align: center; line-height: 1.25; }
   }
 
   /* MAP */
@@ -180,6 +185,98 @@
     text-transform: uppercase;
     max-width: 38%;
     z-index: 5;
+  }
+  .map-label .map-sublabel {
+    display: block;
+    margin-top: 10px;
+    font-family: var(--font-body);
+    font-weight: 600; /* SemiBold — one step below the Black title */
+    font-size: clamp(16px, 1.85vw, 25px);
+    text-transform: none;
+    letter-spacing: 0;
+    color: var(--black);
+    opacity: 0.85;
+    line-height: 1.3;
+  }
+
+  /* Title + description stack rendered inside each click zone. A faint
+     translucent panel sits behind the text so it stays legible over the map. */
+  .map-label-stack {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 22px;
+    max-width: 92%;
+    pointer-events: none;
+    background: rgba(255, 255, 255, 0.72);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    padding: 22px 26px;
+    border-radius: 4px;
+    box-shadow: 0 2px 18px rgba(0, 0, 0, 0.06);
+  }
+  .map-desc {
+    font-family: 'Libre Franklin', sans-serif;
+    font-weight: 400; /* lead paragraph — Regular */
+    font-size: clamp(13px, 1.1vw, 17px);
+    line-height: 1.55;
+    color: var(--black);
+    text-align: center;
+    max-width: 520px;
+  }
+  .map-desc p { margin: 0 0 10px; }
+  .map-desc p.intro {
+    font-weight: 300; /* Light — one step below the lead paragraph */
+    font-style: italic; opacity: 0.85; margin-top: 4px;
+  }
+  .map-desc ul {
+    list-style: none; margin: 8px 0 0; padding: 0;
+    display: flex; flex-direction: column; gap: 6px;
+    font-weight: 200; /* ExtraLight — bullet list sits one step below the intro */
+  }
+  .map-desc li { text-align: center; }
+  .map-desc li .era-tag {
+    font-family: var(--font-display);
+    font-weight: 700; /* Bold — visible label, but still lighter than the title */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-right: 6px;
+    color: var(--green);
+  }
+  /* Landscape: anchor each side's stack to its own edge so the text reads
+     out toward the center of the map. Left side aligns left, right side
+     aligns right. */
+  .map-click-zone.left  { justify-content: flex-start; }
+  .map-click-zone.right { justify-content: flex-end; }
+  .map-click-zone.left  .map-label-stack { align-items: flex-start; }
+  .map-click-zone.right .map-label-stack { align-items: flex-end; }
+  .map-click-zone.left  .map-label,
+  .map-click-zone.left  .map-desc { text-align: left; }
+  .map-click-zone.right .map-label,
+  .map-click-zone.right .map-desc { text-align: right; }
+
+  /* Once a section is selected the wrapper shrinks for the panel preview —
+     hide the long descriptions so the labels stay legible in the strip. */
+  #map-screen:has(#map-section-panel.visible) .map-desc { display: none; }
+  #map-screen:has(#map-section-panel.visible) .map-label-stack {
+    gap: 0;
+    padding: 10px 16px;
+    box-shadow: none;
+  }
+
+  /* Portrait: zones stack top/bottom, so re-center everything and tighten
+     the layout to fit each half. */
+  @media (orientation: portrait) {
+    .map-desc { font-size: clamp(12px, 1.7vh, 15px); max-width: 86vw; }
+    .map-label-stack { gap: 14px; padding: 16px 18px; }
+    .map-click-zone.left,
+    .map-click-zone.right { justify-content: center; }
+    .map-click-zone.left  .map-label-stack,
+    .map-click-zone.right .map-label-stack { align-items: center; }
+    .map-click-zone.left  .map-label,
+    .map-click-zone.left  .map-desc,
+    .map-click-zone.right .map-label,
+    .map-click-zone.right .map-desc { text-align: center; }
   }
 
   /* Bottom-fade scroll-down hint on map */
@@ -381,11 +478,68 @@
     padding: 5% 3%;
     box-sizing: border-box;
   }
+  /* Gallery card: spans the remaining 2/3 of the panel and houses a
+     horizontally-scrollable image strip. Sits next to the About Me card so
+     the two pinned cards together fill the full panel width. Overrides the
+     base card's center alignment so the gallery stretches edge-to-edge. */
+  .story-card.story-card-gallery {
+    flex: 0 0 calc((2 * (100% - 32px) / 3) + 16px);
+    padding: 0;
+    overflow: hidden;
+    position: relative;
+    justify-content: flex-start;
+    align-items: stretch;
+  }
+  .story-card-gallery .story-headline {
+    position: absolute; top: 12px; left: 12px;
+    z-index: 2;
+    padding: 6px 12px;
+    background: rgba(255,255,255,0.85);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    pointer-events: none;
+    font-size: clamp(14px, 1.4vw, 20px) !important;
+    border-radius: 2px;
+  }
+  .gallery-track {
+    flex: 1 1 auto;
+    min-height: 0;
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 12px;
+    box-sizing: border-box;
+    align-items: center;
+    scroll-behavior: auto;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(0,0,0,0.25) transparent;
+  }
+  .gallery-track::-webkit-scrollbar { height: 6px; }
+  .gallery-track::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.25); border-radius: 3px; }
+  .gallery-track img {
+    height: 100%;
+    width: auto;
+    max-height: 100%;
+    object-fit: contain;
+    flex: 0 0 auto;
+    user-select: none;
+    background: #f3f3f0;
+  }
+  /* Mobile: gallery card spans full width on its own row. */
+  @media (max-width: 768px) {
+    .story-card.story-card-gallery {
+      flex: none; width: 100%;
+      min-height: clamp(220px, 50vw, 340px);
+    }
+  }
   /* Headline base — fitStoryHeadlines() overrides font-size per card so each
      headline grows to fill its available space. The clamp serves as a fallback
      before JS measures (and on tiny edge cases). */
   .story-headline {
-    font-family: 'FranklinGothicCondensed', 'FranklinGothic', sans-serif;
+    font-family: 'Libre Franklin', sans-serif;
+    font-weight: 700; /* Bold — secondary headline, one tier below the president name */
     font-size: clamp(18px, 3.5vw, 42px);
     line-height: 1.05;
     color: var(--black);
@@ -403,16 +557,15 @@
   .smeta-link {
     grid-column: 1 / -1;
     text-align: center;
-    font-family: 'FranklinGothic', sans-serif;
+    font-family: 'Libre Franklin', sans-serif;
     font-size: 10px;
     letter-spacing: 0.12em;
     text-transform: uppercase;
     color: var(--black);
-    opacity: 0.45;
     margin-top: 4px;
   }
   .story-card[style*="cursor:pointer"]:hover .smeta-link {
-    opacity: 0.9;
+    opacity: 1;
   }
   .story-body { display: none; }
   .story-meta-bottom {
@@ -427,27 +580,27 @@
   .smeta-source {
     grid-column: 1 / -1;
     text-align: center;
-    font-family: 'FranklinGothic', sans-serif;
+    font-family: 'Libre Franklin', sans-serif;
     font-style: italic;
     font-size: clamp(9px, 1.1vw, 13px);
-    color: #aaa;
+    color: var(--black);
     letter-spacing: 0.12em;
     text-transform: uppercase;
     margin-bottom: 3px;
   }
   .smeta-date {
-    font-family: 'FranklinGothic', sans-serif;
+    font-family: 'Libre Franklin', sans-serif;
     font-style: italic;
     font-size: clamp(9px, 1.1vw, 13px);
-    color: #bbb;
+    color: var(--black);
     letter-spacing: 0.05em;
     text-align: center;
   }
   .smeta-page {
-    font-family: 'FranklinGothic', sans-serif;
+    font-family: 'Libre Franklin', sans-serif;
     font-style: italic;
     font-size: clamp(9px, 1.1vw, 13px);
-    color: #bbb;
+    color: var(--black);
     text-align: center;
     letter-spacing: 0.05em;
   }
@@ -890,10 +1043,32 @@
          before map-img-inner so the hover-forward CSS sibling selectors work.
          Labels live inside the zones so they center on the click area. -->
     <div class="map-click-zone left"  onclick="toggleSection('whitehouse')"  aria-label="Press Coverage">
-      <div class="map-label">Press Coverage — How newspapers have covered Americans, 1789–today</div>
+      <div class="map-label-stack">
+        <div class="map-label">Press Coverage<span class="map-sublabel">How newspapers have covered Americans, 1789–today</span></div>
+        <div class="map-desc">
+          <p>Newspapers are the loudest voices people have to express their opinions, and are often used to express public sentiment.</p>
+          <p class="intro">The collection shows the shift in public perception over each president's time in office.</p>
+          <ul>
+            <li><span class="era-tag">Beginning</span>hopeful and positive coverage of the new president.</li>
+            <li><span class="era-tag">Middle</span>the nuts and bolts — the real issues and how people are writing about them.</li>
+            <li><span class="era-tag">End</span>more pessimistic; the president never got as much done as they wanted, and the cycle starts again.</li>
+          </ul>
+        </div>
+      </div>
     </div>
     <div class="map-click-zone right" onclick="toggleSection('peoplespark')" aria-label="Presidential Discourse">
-      <div class="map-label">Presidential Discourse — How presidents have spoken about Americans, 1789–today</div>
+      <div class="map-label-stack">
+        <div class="map-label">Presidential Discourse<span class="map-sublabel">How presidents have spoken about Americans, 1789–today</span></div>
+        <div class="map-desc">
+          <p>Presidential Papers are the official words of the President — often where POTUS expresses opinions on the state of affairs, or in this case, opinions on the people.</p>
+          <p class="intro">The collection shows the different perspectives.</p>
+          <ul>
+            <li><span class="era-tag">Beginning</span>Americans the president praises.</li>
+            <li><span class="era-tag">Middle</span>State of the Union — the official mid-term address to the country.</li>
+            <li><span class="era-tag">End</span>Americans the president criticizes.</li>
+          </ul>
+        </div>
+      </div>
     </div>
     <div class="map-img-inner" id="map-img-inner">
       <img id="map-main-img" src="" alt="Map">
@@ -1024,7 +1199,52 @@ const PORTRAITS = {
   "Barack Obama": "tbaa_assets/images/img_043.jpg",
   "Donald Trump": "tbaa_assets/images/img_044.jpg",
   "Joseph Biden": "tbaa_assets/images/img_045.jpg",
+  "Jack Murray": "tbaa_assets/images/jack-murray.jpg",
 };
+
+// Pinned info cards for the Jack Murray entry. Defined once and referenced
+// from both PRESIDENTS_LIST and PEOPLES_PARK_LIST so the cards show no matter
+// which section is selected. The merge in getCurrentPresidents() dedupes them
+// when both sections are toggled. The gallery list runs reflectus 14→1 then
+// tbaa 1→14; centerIdx is the index of tbaa-1, so the scroll lands on the
+// boundary between reflectus-1 and tbaa-1.
+const JACK_MURRAY_PINNED = [
+  { type:'meta', headline:'About Me' },
+  {
+    type:'meta',
+    headline:'About the Project',
+    gallery: [
+      'processbook/reflectus14.jpg',
+      'processbook/Reflectus13.jpg',
+      'processbook/reflectus12.jpg',
+      'processbook/reflectus-11.jpg',
+      'processbook/reflectus-10.jpg',
+      'processbook/reflectus-9.jpg',
+      'processbook/reflectus-8.jpg',
+      'processbook/reflectus-7.jpg',
+      'processbook/reflectus-6.jpg',
+      'processbook/reflectus-5.jpg',
+      'processbook/reflectus-4.jpg',
+      'processbook/reflectus-3.jpg',
+      'processbook/reflectus-1.jpg',
+      'processbook/tbaa-1.jpg',
+      'processbook/tbaa-2.jpg',
+      'processbook/tbaa-3.jpg',
+      'processbook/tbaa-4.jpg',
+      'processbook/tbaa-5.jpg',
+      'processbook/tbaa-6.jpg',
+      'processbook/tbaa-7.jpg',
+      'processbook/tbaa-8.jpg',
+      'processbook/tbaa-9.jpg',
+      'processbook/tbaa-10.jpg',
+      'processbook/tbaa-11.jpg',
+      'processbook/tbaa-12.jpg',
+      'processbook/tbaa-13.jpg',
+      'processbook/tbaa-14.jpg'
+    ],
+    centerIdx: 13
+  }
+];
 
 const PRESIDENTS_LIST = [
     {
@@ -1038,7 +1258,7 @@ const PRESIDENTS_LIST = [
     {
       id: 'john-adams', name: "John Adams", termYears: "1797–1801",
       stories: [
-        { type:'neutral',  headline:"(Administration coverage) references to President Adams (topic line)", source:"Gazette of the United States, & Philadelphia daily advertiser. (Philadelphia [Pa.])", date:"1797-09-29", page:"1" , url:"https://www.loc.gov/resource/sn83025881/1797-09-29/ed-1/?sp=1&st=text" },
+        { type:'neutral',  headline:"Adams First Year", source:"Gazette of the United States, & Philadelphia daily advertiser. (Philadelphia [Pa.])", date:"1797-09-29", page:"1" , url:"https://www.loc.gov/resource/sn83025881/1797-09-29/ed-1/?sp=1&st=text" },
         { type:'sotu', headline:"President Adams Reports on French Negotiations, Urges Military Readiness", body:"PHILADELPHIA — President Adams delivered his third Annual Address to Congress on Dec. 3, reporting on diplomatic negotiations with France while urging continued military preparedness. Adams noted the dispatch of envoys to France and expressed hope for a peaceful resolution to the Quasi-War, but cautioned the nation must remain ready to defend itself.", source:"Gazette of the United States (Philadelphia, Pa.)", date:"1799-12-04" , url:"https://www.presidency.ucsb.edu/documents/third-annual-address-congress" },
         { type:'negative', headline:"The design of this book is to exhibit the multiplicated corruptions of the Federal Government, and more specifically the misconduct of the President, Mr. Adams", source:"The Prospect Before Us", date:"1801-04-29", page:"8" , url:"https://archive.org/details/prospectbeforeus00call/page/n9/mode/2up" }
       ]
@@ -1386,6 +1606,11 @@ const PRESIDENTS_LIST = [
         { type:'sotu', headline:"Biden Exhorts Congress to 'Finish the Job,' Clashes With GOP on Entitlements", body:"WASHINGTON (AP) — President Biden exhorted Congress on Feb. 7 to 'finish the job' of rebuilding the economy. In a 73-minute address, Biden highlighted record job creation and sparred with House Republicans over Medicare and Social Security, prompting angry shouts from the floor. He addressed the war in Ukraine and rising tensions with China, referencing the spy balloon shot down days earlier. Arkansas Gov. Sarah Huckabee Sanders delivered the Republican response.", source:"Associated Press / PBS NewsHour", date:"2023-02-08" , url:"https://www.pbs.org/newshour/politics/watch-live-president-joe-bidens-2023-state-of-the-union-address-pbs-newshour-special-coverage" },
         { type:'negative', headline:"As term nears its end, Biden presidency viewed less favorably by Americans than Trump or Obama, AP-NORC poll finds", source:"PBS", date:"2025-01-10", page:"N/A (online)" , url:"https://www.pbs.org/newshour/politics/as-term-nears-its-end-biden-presidency-viewed-less-favorably-by-americans-than-trump-or-obama-ap-norc-poll-finds" }
       ]
+    },
+    {
+      id: 'jack-murray', name: "Jack Murray", termYears: "2025–present",
+      pinned: JACK_MURRAY_PINNED,
+      stories: []
     }
 ];
 
@@ -1755,6 +1980,11 @@ const PEOPLES_PARK_LIST = [
       { type:'sotu', headline:"Biden Exhorts Congress to 'Finish the Job,' Clashes With GOP on Entitlements", body:"\"Twelve years ago, when I was here—not in this chair—I spoke about the need to protect the intellectual property of American workers.\"", source:'Associated Press / PBS NewsHour', date:'2023-02-07', url:'https://www.pbs.org/newshour/politics/watch-live-president-joe-bidens-2023-state-of-the-union-address-pbs-newshour-special-coverage' },
       { type:'negative', headline:'Address on United States Democracy in Philadelphia, Pennsylvania', body:'MAGA Republicans do not respect the Constitution. They do not believe in the rule of law. They do not recognize the will of the people.', source:'The American Presidency Project (UCSB)', date:'2022-09-01', page:'Group: MAGA Republicans', url:'https://www.presidency.ucsb.edu/documents/address-united-states-democracy-philadelphia-pennsylvania' }
     ]
+  },
+  {
+    id: 'jack-murray', name: 'Jack Murray', termYears: '2025–present',
+    pinned: JACK_MURRAY_PINNED,
+    stories: []
   }
 ];
 
@@ -1777,20 +2007,28 @@ let currentEraFilter = 'all'; // 'all' | 'beginning' | 'middle' | 'end'
 // active era third (early/mid/late term coverage). Each returned story
 // keeps its original index in p.stories under _origIdx so click handlers
 // can still resolve back to the unfiltered story.
+// Era filter is content-based, not time-based: each story carries an explicit
+// `type` (neutral/positive = early-term praise, sotu = mid-term address,
+// negative = late-term criticism) and the era buttons surface those buckets.
+const ERA_TYPES = {
+  beginning: ['neutral', 'positive'],
+  middle:    ['sotu'],
+  end:       ['negative']
+};
 function getActiveStories(p) {
-  if (!p || !p.stories) return [];
-  const sorted = p.stories
+  if (!p) return [];
+  const stories = p.stories || [];
+  const sorted = stories
     .map((s, origIdx) => Object.assign({}, s, { _origIdx: origIdx }))
     .sort((a, b) => (a.date || '').localeCompare(b.date || ''));
-  if (!currentEraFilter || currentEraFilter === 'all') return sorted;
-  const total = sorted.length;
-  if (total === 0) return [];
-  const beginEnd = Math.ceil(total / 3);
-  const midEnd   = Math.ceil(2 * total / 3);
-  if (currentEraFilter === 'beginning') return sorted.slice(0, beginEnd);
-  if (currentEraFilter === 'middle')    return sorted.slice(beginEnd, midEnd);
-  if (currentEraFilter === 'end')       return sorted.slice(midEnd);
-  return sorted;
+  const allowed = ERA_TYPES[currentEraFilter];
+  const filtered = (!currentEraFilter || currentEraFilter === 'all' || !allowed)
+    ? sorted
+    : sorted.filter(s => allowed.indexOf(s.type) !== -1);
+  // Pinned cards (e.g. About Me / About the Project on the Jack Murray entry)
+  // are surfaced ahead of regular stories and bypass the era filter entirely.
+  const pinned = (p.pinned || []).map((s, idx) => Object.assign({}, s, { _pinned: true, _origIdx: 'pinned-' + idx }));
+  return pinned.concat(filtered);
 }
 
 // Returns presidents that still have at least one story under the current era filter.
@@ -1811,7 +2049,7 @@ function getCurrentPresidents() {
   selectedSections.forEach(sectionId => {
     (PRESIDENTS[sectionId] || []).forEach(p => {
       if (!merged[p.name]) {
-        merged[p.name] = { id: p.id, name: p.name, termYears: p.termYears, stories: [] };
+        merged[p.name] = { id: p.id, name: p.name, termYears: p.termYears, stories: [], pinned: p.pinned || [] };
         order.push(p.name);
       }
       p.stories.forEach(s => merged[p.name].stories.push(
@@ -2131,12 +2369,65 @@ function renderSingleView(presidentIndex) {
   // (which change text metrics) have likely loaded.
   setTimeout(fitStoryHeadlines, 80);
   setTimeout(fitStoryHeadlines, 600);
+  // Anchor any image gallery (About the Project) on its centerIdx image once
+  // the layout settles, then re-anchor as each image loads (image width is
+  // unknown until then).
+  setTimeout(centerGalleries, 80);
+}
+
+// Scroll every .gallery-track so the image at `data-center-idx` starts at the
+// horizontal centerline of the track. Re-runs on each image's load event,
+// since the natural width changes the offset of every following sibling.
+function centerGalleries() {
+  document.querySelectorAll('.gallery-track').forEach(track => {
+    if (track.dataset.centered === '1' && !track.dataset.recenter) return;
+    centerGallery(track);
+    track.querySelectorAll('img').forEach(img => {
+      if (img.complete) return;
+      img.addEventListener('load', () => centerGallery(track), { once: true });
+    });
+  });
+}
+function centerGallery(track) {
+  const items = track.querySelectorAll('img');
+  const idx = parseInt(track.dataset.centerIdx || '0', 10);
+  const target = items[idx];
+  if (!target) return;
+  // Align the left edge of the target image with the centerline of the
+  // viewport so the previous image and the target sit symmetrically across
+  // the middle of the strip.
+  track.scrollLeft = target.offsetLeft - track.clientWidth / 2;
+  track.dataset.centered = '1';
 }
 
 function buildPresidentHTML(p, i, allPresidents) {
   const next = allPresidents[i + 1];
   const activeStories = getActiveStories(p);
-  const cards = activeStories.map((s, si) => `
+  const cards = activeStories.map((s, si) => {
+    if (s._pinned) {
+      // Pinned info cards (About Me / About the Project): no click target,
+      // no archive metadata footer. Cards with a `gallery` render a wider
+      // card with a horizontally scrolling image strip; otherwise just the
+      // headline + optional body.
+      if (s.gallery && s.gallery.length) {
+        // Eager load so widths are known and the re-centering on each image
+        // load can converge on the correct scroll position.
+        const imgs = s.gallery.map(src =>
+          `<img src="${src}" alt="" draggable="false">`
+        ).join('');
+        return `
+    <div class="story-card story-card-pinned story-card-gallery type-${s.type || 'meta'}">
+      <div class="story-headline">${s.headline}</div>
+      <div class="gallery-track" data-center-idx="${s.centerIdx || 0}">${imgs}</div>
+    </div>`;
+      }
+      return `
+    <div class="story-card story-card-pinned type-${s.type || 'meta'}">
+      <div class="story-headline">${s.headline}</div>
+      ${s.body ? `<div class="story-body" style="display:block;">${s.body}</div>` : ''}
+    </div>`;
+    }
+    return `
     <div class="story-card type-${s.type}" onclick="showDetailByIndex(${i}, ${s._origIdx})" style="cursor:pointer;">
       <div class="story-headline">${s.headline}</div>
       ${s.body ? `<div class="story-body">${s.body}</div>` : ''}
@@ -2146,7 +2437,8 @@ function buildPresidentHTML(p, i, allPresidents) {
         ${s.page ? `<div class="smeta-page">${s.page}</div>` : ''}
         <div class="smeta-link">Read More →</div>
       </div>
-    </div>`).join('');
+    </div>`;
+  }).join('');
 
   const transition = '';
 
@@ -2299,6 +2591,9 @@ window.addEventListener('resize', alignCardPanels);
 // Binary-searches the largest font-size at which the headline's content fits
 // within the card minus its padding and the meta-bottom block.
 function fitCardHeadline(card) {
+  // Gallery card keeps its headline at the size set in CSS — auto-fitting it
+  // would balloon the title over the images.
+  if (card.classList.contains('story-card-gallery')) return;
   const headline = card.querySelector('.story-headline');
   if (!headline) return;
   const meta = card.querySelector('.story-meta-bottom');
