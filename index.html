@@ -850,10 +850,42 @@
   }
   .detail-source-link:hover { background: var(--green); color: var(--white); }
 
+  /* Pinned-info detail page (About Me / About the Project). Breaks out of
+     the standard centered text column so the gallery can span the viewport,
+     and renders a large display-font headline above the content. */
+  #detail-screen.detail-pinned-mode .detail-scroll {
+    max-width: none;
+    padding: 40px 60px 80px;
+  }
+  .detail-pinned-title {
+    font-family: var(--font-display);
+    font-size: clamp(36px, 6vw, 80px);
+    margin: 0 0 32px;
+    color: var(--black);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    line-height: 1;
+  }
+  .detail-pinned-gallery {
+    /* Inherits flex+overflow defaults from .gallery-track; adjust scale for
+       the full-screen detail context. */
+    height: calc(100vh - 240px);
+    min-height: 360px;
+    gap: 24px;
+    padding: 0;
+    width: 100%;
+  }
+  .detail-pinned-gallery img {
+    background: #f3f3f0;
+  }
+
   @media (max-width: 768px) {
     .detail-header { padding: 14px 14px 12px 14px; gap: 10px; }
     .detail-scroll { padding: 20px 14px 80px; }
     .detail-meta-grid { grid-template-columns: 1fr; }
+    #detail-screen.detail-pinned-mode .detail-scroll { padding: 20px 14px 60px; }
+    .detail-pinned-title { font-size: clamp(28px, 8vw, 48px); margin-bottom: 20px; }
+    .detail-pinned-gallery { height: calc(100vh - 180px); gap: 14px; }
   }
 
   /*  ANIM  */
@@ -2416,13 +2448,15 @@ function buildPresidentHTML(p, i, allPresidents) {
           `<img src="${src}" alt="" draggable="false">`
         ).join('');
         return `
-    <div class="story-card story-card-pinned story-card-gallery type-${s.type || 'meta'}">
+    <div class="story-card story-card-pinned story-card-gallery type-${s.type || 'meta'}"
+         onclick="showPinnedDetail(${i}, ${si})" style="cursor:pointer;">
       <div class="story-headline">${s.headline}</div>
       <div class="gallery-track" data-center-idx="${s.centerIdx || 0}">${imgs}</div>
     </div>`;
       }
       return `
-    <div class="story-card story-card-pinned type-${s.type || 'meta'}">
+    <div class="story-card story-card-pinned type-${s.type || 'meta'}"
+         onclick="showPinnedDetail(${i}, ${si})" style="cursor:pointer;">
       <div class="story-headline">${s.headline}</div>
       ${s.body ? `<div class="story-body" style="display:block;">${s.body}</div>` : ''}
     </div>`;
@@ -2746,6 +2780,9 @@ function showDetailByIndex(presIdx, storyIdx) {
 
 function showDetail(story, presName, presTermYears, ctx) {
   ctx = ctx || {};
+  // Make sure pinned-mode styling from a prior About-page visit doesn't bleed
+  // into the regular archive detail layout.
+  document.getElementById('detail-screen').classList.remove('detail-pinned-mode', 'detail-pinned-gallery-mode');
   if (!ctx.skipPush && ctx.presId && ctx.urlSection) {
     pushPath('/' + ctx.urlSection + '/' + ctx.presId + '/' + story.type);
   }
@@ -2819,9 +2856,50 @@ function showDetail(story, presName, presTermYears, ctx) {
 }
 
 function goBackFromDetail() {
+  // Clear pinned-mode styling so the next regular detail page renders normally.
+  document.getElementById('detail-screen').classList.remove('detail-pinned-mode');
   if (detailReturnPath === '/data') goToData();
   else if (detailReturnSelection && detailReturnSelection.length) setSelection(detailReturnSelection);
   else goToMap();
+}
+
+// Detail page for a pinned info card (About Me / About the Project). The
+// `showDetail()` path expects archive metadata fields we don't have here, so
+// pinned cards get their own dedicated detail renderer.
+function showPinnedDetail(presIdx, pinnedIdx) {
+  const presidents = getCurrentPresidents();
+  const p = presidents[presIdx];
+  if (!p || !p.pinned) return;
+  const pinned = p.pinned[pinnedIdx];
+  if (!pinned) return;
+
+  detailReturnSection = currentSection;
+  detailReturnPath = pathForSelection(selectedSections);
+  detailReturnSelection = selectedSections.slice();
+
+  const screen = document.getElementById('detail-screen');
+  screen.classList.add('detail-pinned-mode');
+  if (pinned.gallery && pinned.gallery.length) screen.classList.add('detail-pinned-gallery-mode');
+  else screen.classList.remove('detail-pinned-gallery-mode');
+
+  const container = document.getElementById('detail-scroll');
+  let h = '';
+  h += '<div class="detail-pinned">';
+  h += '<h1 class="detail-pinned-title">' + pinned.headline + '</h1>';
+  if (pinned.gallery && pinned.gallery.length) {
+    const imgs = pinned.gallery.map(src =>
+      '<img src="' + src + '" alt="" draggable="false">'
+    ).join('');
+    h += '<div class="detail-pinned-gallery gallery-track" data-center-idx="' + (pinned.centerIdx || 0) + '">' + imgs + '</div>';
+  }
+  h += '</div>';
+  container.innerHTML = h;
+  container.scrollTop = 0;
+  document.getElementById('nav-bar').style.display = 'none';
+  document.getElementById('scroll-ruler').style.display = 'none';
+  showScreen('detail-screen');
+  // Re-center any gallery on the detail page (same logic the card uses).
+  setTimeout(centerGalleries, 60);
 }
 
 // ── TSV METADATA ENRICHMENT ──
