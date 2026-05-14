@@ -2437,23 +2437,11 @@ function buildPresidentHTML(p, i, allPresidents) {
   const activeStories = getActiveStories(p);
   const cards = activeStories.map((s, si) => {
     if (s._pinned) {
-      // Pinned info cards (About Me / About the Project): no click target,
-      // no archive metadata footer. Cards with a `gallery` render a wider
-      // card with a horizontally scrolling image strip; otherwise just the
-      // headline + optional body.
-      if (s.gallery && s.gallery.length) {
-        // Eager load so widths are known and the re-centering on each image
-        // load can converge on the correct scroll position.
-        const imgs = s.gallery.map(src =>
-          `<img src="${src}" alt="" draggable="false">`
-        ).join('');
-        return `
-    <div class="story-card story-card-pinned story-card-gallery type-${s.type || 'meta'}"
-         onclick="showPinnedDetail(${i}, ${si})" style="cursor:pointer;">
-      <div class="story-headline">${s.headline}</div>
-      <div class="gallery-track" data-center-idx="${s.centerIdx || 0}">${imgs}</div>
-    </div>`;
-      }
+      // Pinned info cards (About Me / About the Project): rendered as
+      // standard headline-only cards. Any gallery data is surfaced only on
+      // the dedicated detail page, not previewed inside the card. `si`
+      // doubles as the index within p.pinned since pinned cards are
+      // prepended to activeStories.
       return `
     <div class="story-card story-card-pinned type-${s.type || 'meta'}"
          onclick="showPinnedDetail(${i}, ${si})" style="cursor:pointer;">
